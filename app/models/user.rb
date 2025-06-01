@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    enum :company_tenure, {
+  enum :company_tenure, {
     less_than_one_year: 0,
     between_one_and_two_years: 1,
     between_two_and_five_years: 2,
