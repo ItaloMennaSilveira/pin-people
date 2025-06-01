@@ -18,5 +18,3 @@ class CreateUsers < ActiveRecord::Migration[8.0]
     add_index :users, :company_email, unique: true
   end
 end
-
-

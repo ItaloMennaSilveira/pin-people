@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 class CsvReaderService
   def initialize(filepath)
@@ -8,9 +8,9 @@ class CsvReaderService
   def call
     CSV.read(
       @filepath,
-      col_sep: ';',
+      col_sep: ";",
       headers: true,
-      encoding: 'UTF-8'
+      encoding: "UTF-8"
     ).map(&:to_h)
   end
 end
