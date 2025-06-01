@@ -12,11 +12,11 @@ RSpec.describe DataSeedJob, type: :job do
 
   after { File.delete(file_path) }
 
-  it "processes the CSV and creates records" do
-    expect {
+  it 'processes the CSV and creates records' do
+    expect do
       described_class.new.perform(file_path)
-    }.to change(User, :count).by(1)
-      .and change(Department, :count).by(5)
-      .and change(SurveyResponse, :count).by(1)
+    end.to change(User, :count).by(1)
+                               .and change(Department, :count).by(5)
+                                                              .and change(SurveyResponse, :count).by(1)
   end
 end

@@ -9,8 +9,8 @@ RSpec.describe CsvReaderService do
 
   after { File.delete(filepath) }
 
-  it "reads CSV and returns an array of hashes" do
+  it 'reads CSV and returns an array of hashes' do
     result = described_class.new(filepath).call
-    expect(result).to eq([ { "col1" => "value1", "col2" => "value2" } ])
+    expect(result).to eq([{ 'col1' => 'value1', 'col2' => 'value2' }])
   end
 end
