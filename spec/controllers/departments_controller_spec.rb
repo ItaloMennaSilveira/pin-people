@@ -67,7 +67,7 @@ RSpec.describe 'Api::V1::Departments', type: :request do
 
   describe 'UPDATE /api/v1/departments/:id' do
     it 'updates department successfully' do
-      put "#{url}#{board.id}", params: {
+      put "#{url}/#{board.id}", params: {
         department: { name: 'Updated Board' }
       }
       expect(response).to have_http_status(:ok)
@@ -75,7 +75,7 @@ RSpec.describe 'Api::V1::Departments', type: :request do
     end
 
     it 'fails to update level company with parent' do
-      put "#{url}#{board.id}", params: {
+      put "#{url}/#{board.id}", params: {
         department: { level: 'company', parent_id: company.id }
       }
       expect(response).to have_http_status(:unprocessable_entity)

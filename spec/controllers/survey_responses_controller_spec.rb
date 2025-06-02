@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
-  let(:user) { create(:user) }
-  let(:survey_responses) { create_list(:survey_response, 3, user: user) }
+RSpec.describe 'Api::V1::SurveyResponsesController', type: :request do
+  let!(:user) { create(:user) }
+  let!(:survey_responses) { create_list(:survey_response, 3, user: user) }
   let(:survey_response) { survey_responses.first }
   let(:valid_attributes) do
     {
@@ -44,7 +44,7 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
 
   describe 'SHOW /api/v1/survey_responses/:id' do
     it 'returns the survey response' do
-      get url, params: { id: survey_response.id }
+      get "#{url}/#{survey_response.id}"
 
       expect(response).to have_http_status(:ok)
       json = JSON.parse(response.body)
@@ -76,17 +76,17 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
     end
   end
 
-  describe 'UPDATE /api/v1/survey_responses' do
+  describe 'UPDATE /api/v1/survey_responses/:id' do
     context 'with valid params' do
       it 'updates the survey response' do
-        put url, params: { id: survey_response.id, survey_response: { feedback: 9 } }
+        put "#{url}/#{survey_response.id}", params: { survey_response: { feedback: 9 } }
         expect(response).to have_http_status(:ok)
         expect(survey_response.reload.feedback).to eq(9)
       end
 
       it 'allows updating user_id when not nil' do
         new_user = create(:user)
-        put url, params: { id: survey_response.id, survey_response: { user_id: new_user.id } }
+        put "#{url}/#{survey_response.id}", params: { survey_response: { user_id: new_user.id } }
         expect(response).to have_http_status(:ok)
         expect(survey_response.reload.user_id).to eq(new_user.id)
       end
@@ -94,7 +94,7 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
 
     context 'with user_id nil in params' do
       it 'returns unprocessable_entity error' do
-        put url, params: { id: survey_response.id, survey_response: { user_id: nil } }
+        put "#{url}/#{survey_response.id}", params: { survey_response: { user_id: nil } }
         expect(response).to have_http_status(:unprocessable_entity)
         json = JSON.parse(response.body)
         expect(json['error']).to eq('user_id cannot be null')
@@ -103,7 +103,7 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
 
     context 'with invalid params' do
       it 'returns errors' do
-        put url, params: { id: survey_response.id, survey_response: { interest_in_position: 20 } }
+        put "#{url}/#{survey_response.id}", params: { survey_response: { interest_in_position: 20 } }
         expect(response).to have_http_status(:unprocessable_entity)
         json = JSON.parse(response.body)
         expect(json['errors']).to include('Interest in position must be less than or equal to 10')
@@ -114,7 +114,7 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
   describe 'DESTROY /api/v1/survey_responses/:id' do
     it 'destroys the requested survey_response' do
       expect do
-        delete url, params: { id: survey_response.id }
+        delete "#{url}/#{survey_response.id}"
       end.to change(SurveyResponse, :count).by(-1)
 
       expect(response).to have_http_status(:no_content)
