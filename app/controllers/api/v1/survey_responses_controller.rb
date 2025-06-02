@@ -5,10 +5,10 @@ module Api
 
       def index
         @survey_responses = SurveyResponse
-                              .by_user_id(params[:user_id])
-                              .by_response_date_range(params[:start_date], params[:end_date])
-                              .page(params[:page])
-                              .per(params[:per_page] || 20)
+                            .by_user_id(params[:user_id])
+                            .by_response_date_range(params[:start_date], params[:end_date])
+                            .page(params[:page])
+                            .per(params[:per_page] || 20)
 
         render json: {
           survey_responses: @survey_responses,

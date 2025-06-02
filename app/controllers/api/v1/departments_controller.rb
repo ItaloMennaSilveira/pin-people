@@ -3,9 +3,9 @@ module Api
     class DepartmentsController < ApplicationController
       def index
         departments = Department
-                        .by_level(params[:level])
-                        .page(params[:page])
-                        .per(params[:per_page] || 20)
+                      .by_level(params[:level])
+                      .page(params[:page])
+                      .per(params[:per_page] || 20)
 
         render json: {
           departments: departments,
@@ -33,14 +33,14 @@ module Api
           }
         ), status: :ok
       rescue ActiveRecord::RecordNotFound
-        render json: { error: "Department not found" }, status: :not_found
+        render json: { error: 'Department not found' }, status: :not_found
       end
 
       def create
         department = Department.new(department_params)
 
         if department.company? && department.parent_id.present?
-          return render json: { error: "Company-level departments cannot have a parent" }, status: :unprocessable_entity
+          return render json: { error: 'Company-level departments cannot have a parent' }, status: :unprocessable_entity
         end
 
         if department.save
@@ -53,8 +53,8 @@ module Api
       def update
         department = Department.find(params[:id])
 
-        if department_params[:level] == "company" && department_params[:parent_id].present?
-          return render json: { error: "Company-level departments cannot have a parent" }, status: :unprocessable_entity
+        if department_params[:level] == 'company' && department_params[:parent_id].present?
+          return render json: { error: 'Company-level departments cannot have a parent' }, status: :unprocessable_entity
         end
 
         if department.update(department_params)
@@ -63,7 +63,7 @@ module Api
           render json: { errors: department.errors.full_messages }, status: :unprocessable_entity
         end
       rescue ActiveRecord::RecordNotFound
-        render json: { error: "Department not found" }, status: :not_found
+        render json: { error: 'Department not found' }, status: :not_found
       end
 
       def destroy
@@ -71,7 +71,7 @@ module Api
         department.destroy
         head :no_content
       rescue ActiveRecord::RecordNotFound
-        render json: { error: "Department not found" }, status: :not_found
+        render json: { error: 'Department not found' }, status: :not_found
       end
 
       private

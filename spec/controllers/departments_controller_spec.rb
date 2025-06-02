@@ -82,7 +82,7 @@ RSpec.describe 'Api::V1::Departments', type: :request do
     end
 
     it 'returns not found if department does not exist' do
-      put "#{url}/999999", params: { #aqui
+      put "#{url}/999999", params: {
         department: { name: 'Non-existent' }
       }
       expect(response).to have_http_status(:not_found)

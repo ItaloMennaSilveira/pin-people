@@ -22,7 +22,8 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
 
   describe 'INDEX /api/v1/survey_responses' do
     it 'returns paginated survey responses filtered by user_id and date range' do
-      get url, params: { user_id: user.id, start_date: 1.year.ago.to_date, end_date: Date.current, page: 1, per_page: 2 }
+      get url,
+          params: { user_id: user.id, start_date: 1.year.ago.to_date, end_date: Date.current, page: 1, per_page: 2 }
 
       expect(response).to have_http_status(:ok)
 
@@ -54,9 +55,9 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
   describe 'CREATE /api/v1/survey_responses' do
     context 'with valid params' do
       it 'creates a new survey response' do
-        expect {
+        expect do
           post url, params: { survey_response: valid_attributes }
-        }.to change(SurveyResponse, :count).by(1)
+        end.to change(SurveyResponse, :count).by(1)
 
         expect(response).to have_http_status(:created)
         json = JSON.parse(response.body)
@@ -112,9 +113,9 @@ RSpec.describe Api::V1::SurveyResponsesController, type: :controller do
 
   describe 'DESTROY /api/v1/survey_responses/:id' do
     it 'destroys the requested survey_response' do
-      expect {
+      expect do
         delete url, params: { id: survey_response.id }
-      }.to change(SurveyResponse, :count).by(-1)
+      end.to change(SurveyResponse, :count).by(-1)
 
       expect(response).to have_http_status(:no_content)
     end

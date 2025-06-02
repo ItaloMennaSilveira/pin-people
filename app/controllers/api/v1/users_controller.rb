@@ -3,23 +3,23 @@ module Api
     class UsersController < ApplicationController
       def index
         users = User.all
-                  .by_department(params[:department_id])
-                  .by_function(params[:function])
-                  .by_position(params[:position])
-                  .by_company_tenure(params[:company_tenure])
-                  .by_genre(params[:genre])
-                  .by_generation(params[:generation])
-                  .page(params[:page])
-                  .per(params[:per_page] || 20)
+                    .by_department(params[:department_id])
+                    .by_function(params[:function])
+                    .by_position(params[:position])
+                    .by_company_tenure(params[:company_tenure])
+                    .by_genre(params[:genre])
+                    .by_generation(params[:generation])
+                    .page(params[:page])
+                    .per(params[:per_page] || 20)
 
         render json: {
           current_page: users.current_page,
           total_pages: users.total_pages,
           total_count: users.total_count,
-          users: users.as_json(only: [
-            :id, :name, :email, :company_email, :function, :position,
-            :company_tenure, :genre, :generation, :department_id
-          ])
+          users: users.as_json(only: %i[
+                                 id name email company_email function position
+                                 company_tenure genre generation department_id
+                               ])
         }, status: :ok
       end
 
@@ -31,9 +31,7 @@ module Api
       end
 
       def create
-        if invalid_department_id?
-          return render json: { error: "Department not found" }, status: :not_found
-        end
+        return render json: { error: 'Department not found' }, status: :not_found if invalid_department_id?
 
         user = User.new(user_params)
 
@@ -45,9 +43,7 @@ module Api
       end
 
       def update
-        if invalid_department_id?
-          return render json: { error: "Department not found" }, status: :not_found
-        end
+        return render json: { error: 'Department not found' }, status: :not_found if invalid_department_id?
 
         user = User.find(params[:id])
         if user.update(user_params)

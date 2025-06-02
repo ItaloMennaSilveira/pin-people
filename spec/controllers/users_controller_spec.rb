@@ -36,7 +36,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
 
     it 'returns not found if user does not exist' do
-      get url, params: { id: 999999 }, format: :json
+      get url, params: { id: 999_999 }, format: :json
 
       expect(response).to have_http_status(:not_found)
     end
@@ -53,7 +53,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
 
     it 'returns not found if department_id is invalid' do
-      post url, params: { user: attributes_for(:user, department_id: 999999) }, format: :json
+      post url, params: { user: attributes_for(:user, department_id: 999_999) }, format: :json
 
       expect(response).to have_http_status(:not_found)
     end
@@ -77,7 +77,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
 
     it 'returns not found if department_id is invalid' do
-      patch url, params: { id: user.id, user: { department_id: 999999 } }, format: :json
+      patch url, params: { id: user.id, user: { department_id: 999_999 } }, format: :json
 
       expect(response).to have_http_status(:not_found)
     end
@@ -88,10 +88,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       user = create(:user)
       create_list(:survey_response, 2, user: user)
 
-      expect {
+      expect do
         delete url, params: { id: user.id }, format: :json
-      }.to change { User.count }.by(-1)
-       .and change { SurveyResponse.count }.by(-2)
+      end.to change { User.count }.by(-1)
+                                  .and change { SurveyResponse.count }.by(-2)
 
       expect(response).to have_http_status(:no_content)
     end

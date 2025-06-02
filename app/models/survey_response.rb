@@ -9,7 +9,7 @@ class SurveyResponse < ApplicationRecord
             numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 10 }
 
   scope :by_user_id, ->(user_id) { where(user_id: user_id) if user_id.present? }
-  scope :by_response_date_range, ->(start_date, end_date) {
+  scope :by_response_date_range, lambda { |start_date, end_date|
     if start_date.present? && end_date.present?
       where(response_date: start_date..end_date)
     elsif start_date.present?

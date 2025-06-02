@@ -1,7 +1,7 @@
 class DataSeedJob
   include Sidekiq::Job
 
-  DEFAULT_PATH = 'tmp/data/data.csv'
+  DEFAULT_PATH = 'tmp/data/data.csv'.freeze
 
   def perform(path = nil)
     file_path = path.presence || DEFAULT_PATH
