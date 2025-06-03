@@ -1,2 +1,101 @@
-<h1>Dashboards#index</h1>
-<p>Find me in app/views/dashboards/index.html.erb</p>
+<h1>Dashboard de Feedback</h1>
+
+<!-- Gráfico: Distribuição de eNPS -->
+<section>
+  <h2>Distribuição de eNPS</h2>
+  <% if @enps_distribution.present? %>
+    <canvas id="enpsChart" width="400" height="200"></canvas>
+  <% else %>
+    <p>Nenhum dado de eNPS disponível.</p>
+  <% end %>
+</section>
+
+<section class="mb-10">
+  <h2 class="text-xl font-semibold mb-2">Distribuição da Média de Interesse no Cargo</h2>
+  <% if @average_interest_distribution.present? %>
+    <canvas id="averageInterestChart" class="w-full max-w-3xl h-64"></canvas>
+  <% else %>
+    <p class="text-gray-500">Nenhum dado de média de interesse disponível.</p>
+  <% end %>
+</section>
+
+<!-- Gráfico: Colaboradores por Área -->
+<section>
+  <h2>Colaboradores por Área</h2>
+  <% if @users_by_area.present? %>
+    <canvas id="usersByAreaChart" width="400" height="200"></canvas>
+  <% else %>
+    <p>Nenhum dado de colaboradores por área disponível.</p>
+  <% end %>
+</section>
+
+<script type="module">
+  import "chart.js";
+
+  // Gráfico Distribuição de eNPS (pizza)
+  <% if @enps_distribution.present? %>
+    new Chart(
+      document.getElementById('enpsChart').getContext('2d'),
+      {
+        type: 'pie',
+        data: {
+          labels: <%= raw @enps_distribution.keys.to_json %>,
+          datasets: [{
+            data: <%= raw @enps_distribution.values.to_json %>,
+            backgroundColor: [
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)'
+            ],
+          }]
+        }
+      }
+    );
+  <% end %>
+
+  <% if @average_interest_distribution.present? %>
+    const ctx = document.getElementById("averageInterestChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: <%= raw @average_interest_distribution.keys.to_json %>,
+        datasets: [{
+          label: "Número de Usuários",
+          data: <%= raw @average_interest_distribution.values.to_json %>,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  <% end %>
+
+  // Gráfico Colaboradores por Área (barra)
+  <% if @users_by_area.present? %>
+    new Chart(
+      document.getElementById('usersByAreaChart').getContext('2d'),
+      {
+        type: 'bar',
+        data: {
+          labels: <%= raw @users_by_area.keys.to_json %>,
+          datasets: [{
+            label: 'Colaboradores',
+            data: <%= raw @users_by_area.values.to_json %>,
+            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+          }]
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      }
+    );
+  <% end %>
+</script>

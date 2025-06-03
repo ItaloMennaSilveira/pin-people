@@ -27,4 +27,33 @@ class User < ApplicationRecord
   scope :by_company_tenure, ->(tenure) { where(company_tenure: tenure) if tenure.present? }
   scope :by_genre, ->(genre) { where(genre: genre) if genre.present? }
   scope :by_generation, ->(generation) { where(generation: generation) if generation.present? }
+
+    def self.average_interest_distribution
+    averages = SurveyResponse.group(:user_id).average(:interest_in_position)
+
+    distribution = {
+      "1-2" => 0,
+      "3-4" => 0,
+      "5-6" => 0,
+      "7-8" => 0,
+      "9-10" => 0
+    }
+
+    averages.each do |user_id, score|
+      case score
+      when 1..2
+        distribution["1-2"] += 1
+      when 3..4
+        distribution["3-4"] += 1
+      when 5..6
+        distribution["5-6"] += 1
+      when 7..8
+        distribution["7-8"] += 1
+      when 9..10
+        distribution["9-10"] += 1
+      end
+    end
+
+    distribution
+  end
 end

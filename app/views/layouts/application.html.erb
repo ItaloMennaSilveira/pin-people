@@ -19,10 +19,23 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <aside class="sidebar">
+      <h1>Menu</h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Dashboard", root_path %></li>
+          <li><a href="#">Outro Link</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <%= yield %>
+    </main>
   </body>
 </html>
