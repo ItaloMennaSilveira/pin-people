@@ -6,7 +6,7 @@ class SurveyResponse < ApplicationRecord
             :feedback, :manager_interaction, :career_clarity,
             :permanence_expectation, :enps,
             presence: true,
-            numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 10 }
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
 
   scope :by_user_id, ->(user_id) { where(user_id: user_id) if user_id.present? }
   scope :by_response_date_range, lambda { |start_date, end_date|
