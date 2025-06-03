@@ -1,12 +1,11 @@
 <h1>Dashboard de Feedback</h1>
 
-<!-- Gráfico: Distribuição de eNPS -->
 <section>
   <h2>Distribuição de eNPS</h2>
   <% if @enps_distribution.present? %>
     <canvas id="enpsChart" width="400" height="200"></canvas>
   <% else %>
-    <p>Nenhum dado de eNPS disponível.</p>
+    <p>Nenhum dado disponível.</p>
   <% end %>
 </section>
 
@@ -15,24 +14,22 @@
   <% if @average_interest_distribution.present? %>
     <canvas id="averageInterestChart" class="w-full max-w-3xl h-64"></canvas>
   <% else %>
-    <p class="text-gray-500">Nenhum dado de média de interesse disponível.</p>
+    <p class="text-gray-500">Nenhum dado disponível.</p>
   <% end %>
 </section>
 
-<!-- Gráfico: Colaboradores por Área -->
 <section>
   <h2>Colaboradores por Área</h2>
   <% if @users_by_area.present? %>
     <canvas id="usersByAreaChart" width="400" height="200"></canvas>
   <% else %>
-    <p>Nenhum dado de colaboradores por área disponível.</p>
+    <p>Nenhum dado disponível.</p>
   <% end %>
 </section>
 
 <script type="module">
   import "chart.js";
 
-  // Gráfico Distribuição de eNPS (pizza)
   <% if @enps_distribution.present? %>
     new Chart(
       document.getElementById('enpsChart').getContext('2d'),
@@ -43,40 +40,92 @@
           datasets: [{
             data: <%= raw @enps_distribution.values.to_json %>,
             backgroundColor: [
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)'
+              '#4dc9f6',
+              '#f67019',
+              '#f53794',
+              '#537bc4',
+              '#acc236',
+              '#166a8f',
+              '#00a950',
+              '#58595b',
+              '#8549ba',
+              '#e91e63',
             ],
           }]
-        }
+        },
+        options: {
+          plugins: {
+            datalabels: {
+              formatter: (value, ctx) => {
+                let sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                let percentage = (value * 100 / sum).toFixed(1) + '%';
+                return percentage;
+              },
+              color: '#000000',
+              font: {
+                weight: 'normal',
+                size: 14,
+              }
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
       }
     );
   <% end %>
 
   <% if @average_interest_distribution.present? %>
     const ctx = document.getElementById("averageInterestChart").getContext("2d");
+    const labels = <%= raw @average_interest_distribution.keys.to_json %>; // ["1-2", "3-4", "5-6", "7-8", "9-10"]
+    const values = <%= raw @average_interest_distribution.values.to_json %>;
+    const colors = ['#4dc9f6', '#f67019', '#f53794', '#537bc4', '#acc236'];
+
+    const datasets = labels.map((label, index) => ({
+      label: label,
+      data: Array(labels.length).fill(0).map((_, i) => i === index ? values[index] : 0),
+      backgroundColor: colors[index]
+    }));
 
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: <%= raw @average_interest_distribution.keys.to_json %>,
-        datasets: [{
-          label: "Número de Usuários",
-          data: <%= raw @average_interest_distribution.values.to_json %>,
-          backgroundColor: 'rgba(75, 192, 192, 0.6)'
-        }]
+        labels: labels,
+        datasets: datasets
       },
       options: {
+        plugins: {
+          datalabels: {
+            anchor: 'end',
+            align: 'top',
+            color: '#000',
+            font: {
+              weight: 'normal',
+              size: 12,
+            },
+            formatter: (value) => value
+          }
+        },
         scales: {
-          y: { beginAtZero: true }
+          x: {
+            stacked: true,
+            title: {
+              display: true,
+              text: 'Faixa de Nota de Interesse'
+            }
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Quantidade de Usuários'
+            }
+          }
         }
-      }
+      },
+      plugins: [ChartDataLabels]
     });
   <% end %>
 
-  // Gráfico Colaboradores por Área (barra)
   <% if @users_by_area.present? %>
     new Chart(
       document.getElementById('usersByAreaChart').getContext('2d'),
@@ -85,14 +134,30 @@
         data: {
           labels: <%= raw @users_by_area.keys.to_json %>,
           datasets: [{
-            label: 'Colaboradores',
             data: <%= raw @users_by_area.values.to_json %>,
-            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+            backgroundColor: '#4dc9f6'
           }]
         },
         options: {
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
           scales: {
-            y: { beginAtZero: true }
+            x: {
+              title: {
+                display: true,
+                text: 'Nome da Área'
+              }
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Quantidade de Usuários'
+              }
+            }
           }
         }
       }
