@@ -1,27 +1,33 @@
-<h1>Dashboard de Feedback</h1>
+<h1 style="margin-bottom: 2rem;">Dashboard de Feedback</h1>
 
-<section>
-  <h2>Distribuição de eNPS</h2>
+<section class="mb-10">
+  <h2 style="margin-bottom: 0.5rem;">Distribuição de eNPS</h2>
   <% if @enps_distribution.present? %>
-    <canvas id="enpsChart" width="400" height="200"></canvas>
+    <div style="max-width: 500px;">
+      <canvas id="enpsChart" style="width: 100%; height: 300px;"></canvas>
+    </div>
   <% else %>
     <p>Nenhum dado disponível.</p>
   <% end %>
 </section>
 
 <section class="mb-10">
-  <h2 class="text-xl font-semibold mb-2">Distribuição da Média de Interesse no Cargo</h2>
+  <h2 style="margin-bottom: 0.5rem;">Distribuição da Média de Interesse no Cargo</h2>
   <% if @average_interest_distribution.present? %>
-    <canvas id="averageInterestChart" class="w-full max-w-3xl h-64"></canvas>
+    <div style="max-width: 500px;">
+      <canvas id="averageInterestChart" style="width: 100%; height: 300px;"></canvas>
+    </div>
   <% else %>
-    <p class="text-gray-500">Nenhum dado disponível.</p>
+    <p style="color: gray;">Nenhum dado disponível.</p>
   <% end %>
 </section>
 
-<section>
-  <h2>Colaboradores por Área</h2>
+<section class="mb-10">
+  <h2 style="margin-bottom: 0.5rem;">Colaboradores por Área</h2>
   <% if @users_by_area.present? %>
-    <canvas id="usersByAreaChart" width="400" height="200"></canvas>
+    <div style="max-width: 500px;">
+      <canvas id="usersByAreaChart" style="width: 100%; height: 300px;"></canvas>
+    </div>
   <% else %>
     <p>Nenhum dado disponível.</p>
   <% end %>
@@ -75,22 +81,22 @@
   <% end %>
 
   <% if @average_interest_distribution.present? %>
-    const ctx = document.getElementById("averageInterestChart").getContext("2d");
-    const labels = <%= raw @average_interest_distribution.keys.to_json %>; // ["1-2", "3-4", "5-6", "7-8", "9-10"]
-    const values = <%= raw @average_interest_distribution.values.to_json %>;
-    const colors = ['#4dc9f6', '#f67019', '#f53794', '#537bc4', '#acc236'];
+    const ctxInterest = document.getElementById("averageInterestChart").getContext("2d");
+    const labelsInterest = <%= raw @average_interest_distribution.keys.to_json %>;
+    const valuesInterest = <%= raw @average_interest_distribution.values.to_json %>;
+    const colorsInterest = ['#4dc9f6', '#f67019', '#f53794', '#537bc4', '#acc236'];
 
-    const datasets = labels.map((label, index) => ({
+    const datasetsInterest = labelsInterest.map((label, index) => ({
       label: label,
-      data: Array(labels.length).fill(0).map((_, i) => i === index ? values[index] : 0),
-      backgroundColor: colors[index]
+      data: Array(labelsInterest.length).fill(0).map((_, i) => i === index ? valuesInterest[index] : 0),
+      backgroundColor: colorsInterest[index]
     }));
 
-    new Chart(ctx, {
+    new Chart(ctxInterest, {
       type: 'bar',
       data: {
-        labels: labels,
-        datasets: datasets
+        labels: labelsInterest,
+        datasets: datasetsInterest
       },
       options: {
         plugins: {
