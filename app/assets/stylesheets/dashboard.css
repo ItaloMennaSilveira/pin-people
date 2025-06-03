@@ -1,0 +1,27 @@
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+
+.charts-container section {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.chart-wrapper.pie {
+  aspect-ratio: 1 / 1;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
