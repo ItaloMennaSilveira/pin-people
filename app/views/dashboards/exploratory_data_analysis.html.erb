@@ -1,4 +1,12 @@
 <h1>Análise Exploratória dos Dados</h1>
+
+<%= form_with url: dashboards_exploratory_data_analysis_path, method: :get, local: true do %>
+  <div>
+    <label for="company_id">Selecionar Empresa:</label>
+    <%= select_tag :company_id, options_from_collection_for_select(@companies, :id, :name, @selected_company_id), include_blank: "Todas", onchange: "this.form.submit()" %>
+  </div>
+<% end %>
+
 <p>
   Nesta seção, apresentamos a Análise Exploratória dos Dados (EDA) referente ao interesse dos colaboradores em seus cargos, com base nas respostas coletadas na pesquisa interna. Calculamos medidas estatísticas importantes, como média, mediana, moda, variância e desvio padrão, para entender melhor a distribuição dos níveis de interesse. Essas informações ajudam a identificar padrões e tendências que podem apoiar decisões estratégicas para melhorar o engajamento e satisfação dos colaboradores.
 </p>

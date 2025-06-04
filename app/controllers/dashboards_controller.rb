@@ -16,6 +16,8 @@ class DashboardsController < ApplicationController
   end
 
   def exploratory_data_analysis
-    @statistics = ExploratoryDataAnalysisService.new.call
+    @companies = Department.where(level: 0)
+    @selected_company_id = params[:company_id].presence
+    @statistics = ExploratoryDataAnalysisService.new(company_id: @selected_company_id).call
   end
 end
