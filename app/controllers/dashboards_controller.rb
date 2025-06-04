@@ -50,51 +50,26 @@ class DashboardsController < ApplicationController
     end
   end
 
-  # def user_data_visualization
-  #   @companies = Department.where(level: 0)
-  #   @company_id = params[:company_id] || @companies.first&.id
-
-  #   @q = User.joins(:department).where(departments: { company_id: @company_id }).ransack(params[:q])
-
-  #   @users = @q.result
-  #             .select(:id, :company_tenure, :function, :genre, :generation, :department_id)
-  #             .order(:id)
-  #             .offset(((params[:page] || 1).to_i - 1) * 50)
-  #             .limit(50)
-
-  #   department_ids = @users.map(&:department_id).uniq
-
-  #   @area_averages = SurveyResponse
-  #                     .joins(:user)
-  #                     .where(users: { department_id: department_ids })
-  #                     .group("users.department_id")
-  #                     .pluck("users.department_id, AVG(enps), AVG(contribution)")
-  #                     .to_h { |dept_id, enps_avg, satisfaction_avg| [dept_id, { enps_avg: enps_avg, satisfaction_avg: satisfaction_avg }] }
-
-  #   @total_users_count = @q.result.count
-  # end
-
   def user_data_visualization
-  @companies = Department.where(level: 0)
-  @company_id = params[:company_id] || @companies.first&.id
+    @companies = Department.where(level: 0)
+    @company_id = params[:company_id] || @companies.first&.id
 
-  @q = User.joins(:department).where(departments: { company_id: @company_id }).ransack(params[:q])
+    @q = User.joins(:department).where(departments: { company_id: @company_id }).ransack(params[:q])
 
-  @users = @q.result
-            .select(:id, :company_tenure, :function, :genre, :generation, :department_id)
-            .offset(((params[:page] || 1).to_i - 1) * 50)
-            .limit(50)
+    @users = @q.result
+              .select(:id, :company_tenure, :function, :genre, :generation, :department_id)
+              .offset(((params[:page] || 1).to_i - 1) * 50)
+              .limit(50)
 
-  department_ids = @users.map(&:department_id).uniq
+    department_ids = @users.map(&:department_id).uniq
 
-  @area_averages = SurveyResponse
-                    .joins(:user)
-                    .where(users: { department_id: department_ids })
-                    .group("users.department_id")
-                    .pluck("users.department_id, AVG(enps), AVG(contribution)")
-                    .to_h { |dept_id, enps_avg, satisfaction_avg| [dept_id, { enps_avg: enps_avg, satisfaction_avg: satisfaction_avg }] }
+    @area_averages = SurveyResponse
+                      .joins(:user)
+                      .where(users: { department_id: department_ids })
+                      .group("users.department_id")
+                      .pluck("users.department_id, AVG(enps), AVG(contribution)")
+                      .to_h { |dept_id, enps_avg, satisfaction_avg| [dept_id, { enps_avg: enps_avg, satisfaction_avg: satisfaction_avg }] }
 
-  @total_users_count = @q.result.count
-end
-
+    @total_users_count = @q.result.count
+  end
 end
