@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root to: 'dashboards#index'
   get "/dashboards/exploratory_data_analysis", to: "dashboards#exploratory_data_analysis"
+  get "/dashboards/company_data_visualization", to: "dashboards#company_data_visualization"
 
   namespace :api do
     namespace :v1 do

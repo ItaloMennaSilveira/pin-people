@@ -1,0 +1,93 @@
+<h1>Visualização de Dados - Nível Empresa</h1>
+
+<%= form_with url: dashboards_company_data_visualization_path, method: :get, local: true do %>
+  <div>
+    <label for="company_id">Selecionar Empresa:</label>
+    <%= select_tag :company_id, options_from_collection_for_select(@companies, :id, :name, @company_id), include_blank: "Todas", onchange: "this.form.submit()" %>
+  </div>
+<% end %>
+
+<p>
+  Nesta seção, apresentamos dados consolidados da empresa selecionada, com foco em três métricas: Satisfação Geral dos Colaboradores, eNPS médio por tempo de empresa, e a Distribuição do Tempo de Empresa dos colaboradores. Esses dados permitem identificar padrões de engajamento e satisfação em diferentes fases da jornada do colaborador.
+</p>
+
+<% if @data[:overall_satisfaction].present? %>
+  <section>
+    <h2>Satisfação Geral da Empresa</h2>
+    <p>
+      A satisfação geral foi calculada como a média das respostas dos colaboradores para múltiplas dimensões avaliadas na pesquisa (interesse no cargo, contribuição, aprendizado, feedback, interação com gestor, clareza de carreira e expectativa de permanência).
+    </p>
+    <ul>
+      <li>Média Geral de Satisfação: <%= @data[:overall_satisfaction].round(2) %></li>
+    </ul>
+    <div style="height: 350px; max-width: 600px;">
+      <canvas id="satisfacaoChart"></canvas>
+    </div>
+  </section>
+<% else %>
+  <p>Não há dados suficientes para calcular a satisfação geral da empresa.</p>
+<% end %>
+
+<% if @data[:enps_by_tenure].present? %>
+  <section>
+    <h2>eNPS por Tempo de Empresa</h2>
+    <p>
+      O gráfico abaixo apresenta o eNPS (Employee Net Promoter Score) médio segmentado por tempo de empresa. Essa métrica ajuda a entender como a recomendação da empresa como um bom local para trabalhar varia conforme a senioridade dos colaboradores.
+    </p>
+    <div style="height: 350px; max-width: 600px;">
+      <canvas id="enpsTempoChart"></canvas>
+    </div>
+  </section>
+<% else %>
+  <p>Não há dados suficientes para calcular o eNPS por tempo de empresa.</p>
+<% end %>
+
+<script type="module">
+  import 'chart.js';
+
+  <% if @data[:overall_satisfaction].present? %>
+    const satisfacaoCtx = document.getElementById('satisfacaoChart').getContext('2d');
+    new Chart(satisfacaoCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Satisfação Geral'],
+        datasets: [{
+          label: 'Nota Média',
+          data: [<%= @data[:overall_satisfaction].round(2) %>],
+          backgroundColor: '#4bc0c0'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, max: 10, title: { display: true, text: 'Nota Média' } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  <% end %>
+
+  <% if @data[:enps_by_tenure].present? %>
+    const enpsCtx = document.getElementById('enpsTempoChart').getContext('2d');
+    new Chart(enpsCtx, {
+      type: 'bar',
+      data: {
+        labels: <%= raw @data[:enps_by_tenure].keys.to_json %>,
+        datasets: [{
+          label: 'eNPS Médio',
+          data: <%= raw @data[:enps_by_tenure].values.to_json %>,
+          backgroundColor: '#36a2eb'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: 'eNPS' } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  <% end %>
+</script>

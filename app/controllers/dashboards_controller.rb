@@ -20,4 +20,16 @@ class DashboardsController < ApplicationController
     @selected_company_id = params[:company_id].presence
     @statistics = ExploratoryDataAnalysisService.new(company_id: @selected_company_id).call
   end
+
+  def company_data_visualization
+    @companies = Department.where(level: 0)
+    company_id = params[:company_id] || @companies.first&.id
+
+    if company_id
+      @company_id = company_id.to_i
+      @data = CompanyDataVisualizationService.new(@company_id).call
+    else
+      @data = {}
+    end
+  end
 end
