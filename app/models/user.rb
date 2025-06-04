@@ -28,7 +28,29 @@ class User < ApplicationRecord
   scope :by_genre, ->(genre) { where(genre: genre) if genre.present? }
   scope :by_generation, ->(generation) { where(generation: generation) if generation.present? }
 
-    def self.average_interest_distribution
+  def self.ransackable_attributes(auth_object = nil)
+    %w[
+      id
+      company_tenure
+      function
+      genre
+      generation
+      department_id
+      company_email
+      city
+      created_at
+      updated_at
+      name
+      position
+      id_value
+    ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
+  def self.average_interest_distribution
     averages = SurveyResponse.group(:user_id).average(:interest_in_position)
 
     distribution = {

@@ -12,26 +12,27 @@
 </p>
 
 <% if @users.any? %>
-  <table id="users-table" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+  <table id="users-table" style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center;">
     <thead>
       <tr>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">Tempo de Empresa</th>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">Função</th>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">Gênero</th>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">Geração</th>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">eNPS Médio da Área</th>
-        <th style="border-bottom: 1px solid #ccc; text-align: center;">Satisfação Média da Área</th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :company_tenure, "Tempo de Empresa") %></th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :function, "Função") %></th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :genre, "Gênero") %></th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :generation, "Geração") %></th>
+        <th style="border-bottom: 1px solid #ccc;">Média eNPS Área</th>
+        <th style="border-bottom: 1px solid #ccc;">Média Satisfação Área</th>
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <tr style="border-bottom: 1px solid #ddd;">
-          <td style="text-align: center;"><%= user[:company_tenure] %></td>
-          <td style="text-align: center;"><%= user[:function] %></td>
-          <td style="text-align: center;"><%= user[:genre] %></td>
-          <td style="text-align: center;"><%= user[:generation] %></td>
-          <td style="text-align: center;"><%= user[:area_enps_avg].present? ? number_with_precision(user[:area_enps_avg], precision: 2) : 'N/A' %></td>
-          <td style="text-align: center;"><%= user[:area_satisfaction_avg].present? ? number_with_precision(user[:area_satisfaction_avg], precision: 2) : 'N/A' %></td>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td><%= user.company_tenure %></td>
+          <td><%= user.function %></td>
+          <td><%= user.genre %></td>
+          <td><%= user.generation %></td>
+          <% area = @area_averages[user.department_id] %>
+          <td><%= area ? number_with_precision(area[:enps_avg], precision: 2) : "N/D" %></td>
+          <td><%= area ? number_with_precision(area[:satisfaction_avg], precision: 2) : "N/D" %></td>
         </tr>
       <% end %>
     </tbody>
@@ -40,8 +41,9 @@
   <div class="pagination" style="margin-top: 20px; text-align: center;" id="users-table-container">
     <% total_pages = (@total_users_count / 50.0).ceil %>
     <% if total_pages > 1 %>
+      <% search_params = params[:q].present? ? params[:q].to_unsafe_h : {} %>
       <% (1..total_pages).each do |page| %>
-        <%= link_to page, dashboards_user_data_visualization_path(company_id: @company_id, page: page) + "#users-table-container", class: "pagination-link", style: "margin: 0 5px; text-decoration: underline;" %>
+        <%= link_to page, dashboards_user_data_visualization_path(company_id: @company_id, page: page, q: search_params) + "#users-table-container", class: "pagination-link", style: "margin: 0 5px; text-decoration: underline;" %>
       <% end %>
     <% end %>
   </div>
