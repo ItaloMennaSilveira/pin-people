@@ -33,12 +33,12 @@ RSpec.describe 'Api::V1::SurveyResponsesController', type: :request do
       expect(json['meta']['total_count']).to eq(survey_responses.count)
     end
 
-    it 'returns all survey responses with no filter' do
+    it 'returns the first page of survey responses with default pagination' do
       get url
 
       expect(response).to have_http_status(:ok)
       json = JSON.parse(response.body)
-      expect(json['survey_responses'].size).to eq(SurveyResponse.count)
+      expect(json['survey_responses'].size).to eq([SurveyResponse.count, 20].min)
     end
   end
 
