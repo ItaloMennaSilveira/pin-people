@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root to: 'dashboards#index'
+  get "/dashboards/exploratory_data_analysis", to: "dashboards#exploratory_data_analysis"
 
   namespace :api do
     namespace :v1 do

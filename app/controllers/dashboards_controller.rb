@@ -14,4 +14,11 @@ class DashboardsController < ApplicationController
     @enps_distribution = SurveyResponse.group(:enps).count.sort_by { |k, v| k.to_i }.to_h
     @enps_distribution = {} if @enps_distribution.blank?
   end
+
+  def exploratory_data_analysis
+    @statistics = ExploratoryDataAnalysisService.new.call
+    @interest_distribution = User.joins(:survey_responses)
+                              .group("survey_responses.interest_in_position")
+                              .count
+  end
 end
