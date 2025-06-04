@@ -1,4 +1,3 @@
-# app/services/exploratory_data_analysis_service.rb
 class ExploratoryDataAnalysisService
   def initialize
     @responses = SurveyResponse.pluck(:interest_in_position)
@@ -15,7 +14,9 @@ class ExploratoryDataAnalysisService
       standard_deviation: standard_deviation(@responses),
       min: @responses.min,
       max: @responses.max,
-      count: @responses.size
+      count: @responses.size,
+      interest_distribution: SurveyResponse.group(:interest_in_position).count,
+      enps_distribution: SurveyResponse.group(:enps).count
     }
   end
 
@@ -35,7 +36,7 @@ class ExploratoryDataAnalysisService
     freq = array.tally
     max_freq = freq.values.max
     modes = freq.select { |_, v| v == max_freq }.keys
-    modes.size == array.size ? nil : modes # nil se tudo é igual
+    modes.size == array.size ? nil : modes
   end
 
   def variance(array)

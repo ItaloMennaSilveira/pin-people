@@ -2,6 +2,7 @@
 <p>
   Nesta seção, apresentamos a Análise Exploratória dos Dados (EDA) referente ao interesse dos colaboradores em seus cargos, com base nas respostas coletadas na pesquisa interna. Calculamos medidas estatísticas importantes, como média, mediana, moda, variância e desvio padrão, para entender melhor a distribuição dos níveis de interesse. Essas informações ajudam a identificar padrões e tendências que podem apoiar decisões estratégicas para melhorar o engajamento e satisfação dos colaboradores.
 </p>
+
 <% if @statistics.present? %>
   <ul>
     <li>Média: <%= @statistics[:mean].round(2) %></li>
@@ -17,7 +18,6 @@
   <p>Nenhum dado disponível para análise.</p>
 <% end %>
 
-
 <section>
   <h2>Distribuição do Interesse no Cargo</h2>
   <p>Este gráfico mostra a frequência de respostas para o interesse dos colaboradores em seus cargos.</p>
@@ -26,26 +26,61 @@
   </div>
 </section>
 
+<section>
+  <h2>Distribuição do eNPS</h2>
+  <p>Este gráfico mostra a distribuição do eNPS entre os colaboradores, refletindo sua disposição para recomendar a empresa como um bom lugar para trabalhar.</p>
+  <div style="height: 350px; max-width: 600px;">
+    <canvas id="enpsHistogram"></canvas>
+  </div>
+</section>
+
 <script type="module">
   import 'chart.js';
 
-  const ctx = document.getElementById('interestHistogram').getContext('2d');
-  const labels = <%= raw @interest_distribution.keys.sort.to_json %>;
-  const data = <%= raw @interest_distribution.values_at(*@interest_distribution.keys.sort).to_json %>;
+  // Gráfico de interesse
+  const interestCtx = document.getElementById('interestHistogram').getContext('2d');
+  const interestLabels = <%= raw @statistics[:interest_distribution].keys.sort.to_json %>;
+  const interestData = <%= raw @statistics[:interest_distribution].values_at(*@statistics[:interest_distribution].keys.sort).to_json %>;
 
-  new Chart(ctx, {
+  new Chart(interestCtx, {
     type: 'bar',
     data: {
-      labels: labels,
+      labels: interestLabels,
       datasets: [{
         label: 'Número de Colaboradores',
-        data: data,
+        data: interestData,
         backgroundColor: '#4dc9f6'
       }]
     },
     options: {
       scales: {
         x: { title: { display: true, text: 'Nível de Interesse' } },
+        y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
+      },
+      plugins: {
+        legend: { display: false }
+      }
+    }
+  });
+
+  // Gráfico de eNPS
+  const enpsCtx = document.getElementById('enpsHistogram').getContext('2d');
+  const enpsLabels = <%= raw @statistics[:enps_distribution].keys.sort.to_json %>;
+  const enpsData = <%= raw @statistics[:enps_distribution].values_at(*@statistics[:enps_distribution].keys.sort).to_json %>;
+
+  new Chart(enpsCtx, {
+    type: 'bar',
+    data: {
+      labels: enpsLabels,
+      datasets: [{
+        label: 'Número de Colaboradores',
+        data: enpsData,
+        backgroundColor: '#36a2eb'
+      }]
+    },
+    options: {
+      scales: {
+        x: { title: { display: true, text: 'eNPS' } },
         y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
       },
       plugins: {

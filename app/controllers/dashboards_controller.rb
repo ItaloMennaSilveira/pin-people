@@ -17,8 +17,5 @@ class DashboardsController < ApplicationController
 
   def exploratory_data_analysis
     @statistics = ExploratoryDataAnalysisService.new.call
-    @interest_distribution = User.joins(:survey_responses)
-                              .group("survey_responses.interest_in_position")
-                              .count
   end
 end
