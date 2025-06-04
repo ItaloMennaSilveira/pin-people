@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CompanyDataVisualizationService do
   describe '#call' do
-    let(:company) { create(:department, level: 0, name: "Acme Corp") }
+    let(:company) { create(:department, level: 0, name: 'Acme Corp') }
 
-    let!(:area1) { create(:department, parent: company, level: 1, name: "Sales") }
-    let!(:area2) { create(:department, parent: company, level: 1, name: "Support") }
+    let!(:area1) { create(:department, parent: company, level: 1, name: 'Sales') }
+    let!(:area2) { create(:department, parent: company, level: 1, name: 'Support') }
 
     let(:tenures) { User.company_tenures.keys }
 
@@ -15,34 +15,34 @@ RSpec.describe CompanyDataVisualizationService do
 
     before do
       create(:survey_response, user: user1,
-             interest_in_position: 8,
-             contribution: 7,
-             learning_and_development: 9,
-             feedback: 6,
-             manager_interaction: 7,
-             career_clarity: 8,
-             permanence_expectation: 7,
-             enps: 10)
+                               interest_in_position: 8,
+                               contribution: 7,
+                               learning_and_development: 9,
+                               feedback: 6,
+                               manager_interaction: 7,
+                               career_clarity: 8,
+                               permanence_expectation: 7,
+                               enps: 10)
 
       create(:survey_response, user: user2,
-             interest_in_position: 5,
-             contribution: 6,
-             learning_and_development: 5,
-             feedback: 4,
-             manager_interaction: 5,
-             career_clarity: 6,
-             permanence_expectation: 5,
-             enps: 5)
+                               interest_in_position: 5,
+                               contribution: 6,
+                               learning_and_development: 5,
+                               feedback: 4,
+                               manager_interaction: 5,
+                               career_clarity: 6,
+                               permanence_expectation: 5,
+                               enps: 5)
 
       create(:survey_response, user: user3,
-             interest_in_position: 7,
-             contribution: 8,
-             learning_and_development: 7,
-             feedback: 6,
-             manager_interaction: 8,
-             career_clarity: 7,
-             permanence_expectation: 6,
-             enps: 9)
+                               interest_in_position: 7,
+                               contribution: 8,
+                               learning_and_development: 7,
+                               feedback: 6,
+                               manager_interaction: 8,
+                               career_clarity: 7,
+                               permanence_expectation: 6,
+                               enps: 9)
     end
 
     it 'returns overall satisfaction average correctly' do

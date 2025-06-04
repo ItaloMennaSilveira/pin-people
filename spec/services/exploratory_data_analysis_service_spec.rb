@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ExploratoryDataAnalysisService do
-  let(:company) { create(:department, level: 0, name: "Acme Corp") }
-  let!(:area) { create(:department, parent: company, level: 1, name: "Sales") }
+  let(:company) { create(:department, level: 0, name: 'Acme Corp') }
+  let!(:area) { create(:department, parent: company, level: 1, name: 'Sales') }
 
   let!(:user1) { create(:user, department: area) }
   let!(:user2) { create(:user, department: area) }
@@ -53,11 +53,11 @@ RSpec.describe ExploratoryDataAnalysisService do
       end
 
       it 'returns interest_in_position distribution' do
-        expect(subject[:interest_distribution]).to eq({7 => 2, 5 => 1})
+        expect(subject[:interest_distribution]).to eq({ 7 => 2, 5 => 1 })
       end
 
       it 'returns enps distribution' do
-        expect(subject[:enps_distribution]).to eq({10 => 2, 8 => 1})
+        expect(subject[:enps_distribution]).to eq({ 10 => 2, 8 => 1 })
       end
     end
 
@@ -65,7 +65,7 @@ RSpec.describe ExploratoryDataAnalysisService do
       subject { described_class.new.call }
 
       it 'returns data for all SurveyResponses' do
-        other_company = create(:department, level: 0, name: "Other Corp")
+        other_company = create(:department, level: 0, name: 'Other Corp')
         other_area = create(:department, parent: other_company, level: 1)
         other_user = create(:user, department: other_area)
         create(:survey_response, user: other_user, interest_in_position: 3, enps: 5)

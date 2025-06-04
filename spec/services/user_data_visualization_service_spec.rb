@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe UserDataVisualizationService do
   describe '#call' do
-    let(:company) { create(:department, level: 0, name: "Acme Corp") }
-    let(:area1) { create(:department, parent: company, level: 1, name: "Sales") }
-    let!(:area2) { create(:department, parent: company, level: 1, name: "Support") }
+    let(:company) { create(:department, level: 0, name: 'Acme Corp') }
+    let(:area1) { create(:department, parent: company, level: 1, name: 'Sales') }
+    let!(:area2) { create(:department, parent: company, level: 1, name: 'Support') }
 
     let(:user1) { create(:user, department: area1, company_tenure: User.company_tenures.keys.sample) }
     let(:user2) { create(:user, department: area1, company_tenure: User.company_tenures.keys.sample) }

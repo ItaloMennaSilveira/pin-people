@@ -6,8 +6,8 @@ class CompanyDataVisualizationService
 
   def call
     responses = SurveyResponse
-                  .joins(:user)
-                  .where(users: { department_id: @department_ids })
+                .joins(:user)
+                .where(users: { department_id: @department_ids })
 
     {
       overall_satisfaction: calculate_overall_satisfaction(responses),

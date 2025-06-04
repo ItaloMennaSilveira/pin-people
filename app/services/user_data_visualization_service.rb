@@ -29,10 +29,14 @@ class UserDataVisualizationService
     end.compact
 
     area_averages = SurveyResponse.joins(:user)
-                         .where(users: { department_id: user_data.map { |u| u[:department_id] } })
-                         .group("users.department_id")
-                         .pluck("users.department_id, AVG(enps), AVG(contribution)")
-                         .to_h { |dept_id, enps_avg, satisfaction_avg| [dept_id, { enps_avg: enps_avg.to_f.round(2), satisfaction_avg: satisfaction_avg.to_f.round(2) }] }
+                                  .where(users: { department_id: user_data.map { |u| u[:department_id] } })
+                                  .group('users.department_id')
+                                  .pluck('users.department_id, AVG(enps), AVG(contribution)')
+                                  .to_h do |dept_id, enps_avg, satisfaction_avg|
+      [dept_id,
+       { enps_avg: enps_avg.to_f.round(2),
+         satisfaction_avg: satisfaction_avg.to_f.round(2) }]
+    end
 
     user_data.each do |u|
       averages = area_averages[u[:department_id]] || { enps_avg: nil, satisfaction_avg: nil }

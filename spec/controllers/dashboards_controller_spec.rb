@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe DashboardsController, type: :controller do
   render_views
 
-  let!(:company1) { create(:department, level: 0, name: "Company 1") }
-  let!(:company2) { create(:department, level: 0, name: "Company 2") }
+  let!(:company1) { create(:department, level: 0, name: 'Company 1') }
+  let!(:company2) { create(:department, level: 0, name: 'Company 2') }
 
   describe 'GET #index' do
     it 'assigns @users_by_area as a hash' do
@@ -27,12 +27,12 @@ RSpec.describe DashboardsController, type: :controller do
   describe 'GET #exploratory_data_analysis' do
     let(:fake_statistics) do
       {
-        interest_distribution: { "high" => 10, "low" => 5 },
+        interest_distribution: { 'high' => 10, 'low' => 5 },
         mean: 3.1415,
         median: 3.1415,
         variance: 3.1415,
         standard_deviation: 3.1415,
-        enps_distribution: { "Promoters" => 20, "Passives" => 10, "Detractors" => 5 }
+        enps_distribution: { 'Promoters' => 20, 'Passives' => 10, 'Detractors' => 5 }
       }
     end
 
@@ -82,8 +82,8 @@ RSpec.describe DashboardsController, type: :controller do
   end
 
   describe 'GET #area_data_visualization' do
-    let!(:dept1) { create(:department, company_id: company1.id, level: 1, parent: company1, name: "Area 1") }
-    let!(:dept2) { create(:department, company_id: company1.id, level: 2, parent: dept1, name: "Area 2") }
+    let!(:dept1) { create(:department, company_id: company1.id, level: 1, parent: company1, name: 'Area 1') }
+    let!(:dept2) { create(:department, company_id: company1.id, level: 2, parent: dept1, name: 'Area 2') }
 
     it 'assigns @companies and @departments' do
       get :area_data_visualization, params: { company_id: company1.id }
@@ -95,7 +95,7 @@ RSpec.describe DashboardsController, type: :controller do
       get :area_data_visualization, params: { company_id: company1.id, department_id: dept1.id }
       expect(assigns(:department_id)).to eq(dept1.id)
 
-      get :area_data_visualization, params: { company_id: company1.id, department_id: 99999 }
+      get :area_data_visualization, params: { company_id: company1.id, department_id: 99_999 }
       expect(assigns(:department_id)).to be_nil
     end
 
@@ -112,7 +112,7 @@ RSpec.describe DashboardsController, type: :controller do
   end
 
   describe 'GET #user_data_visualization' do
-    let!(:dept1) { create(:department, company_id: company1.id, level: 1, parent: company1, name: "Dept 1") }
+    let!(:dept1) { create(:department, company_id: company1.id, level: 1, parent: company1, name: 'Dept 1') }
     let!(:user) { create(:user, department: dept1) }
     let!(:survey_response) { create(:survey_response, user: user, enps: 8, contribution: 7) }
 

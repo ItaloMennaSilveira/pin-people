@@ -27,11 +27,11 @@ class ExploratoryDataAnalysisService
     return SurveyResponse.all unless @company_id
 
     SurveyResponse
-            .joins(user: :department)
-            .where(
-              'departments.level = 0 AND departments.id = :company_id OR departments.level != 0 AND departments.company_id = :company_id',
-              company_id: @company_id
-            )
+      .joins(user: :department)
+      .where(
+        'departments.level = 0 AND departments.id = :company_id OR departments.level != 0 AND departments.company_id = :company_id',
+        company_id: @company_id
+      )
   end
 
   def filtered_responses
