@@ -1,12 +1,22 @@
 <h1>Visualização de Dados - Nível Colaborador</h1>
 
 <%= form_with url: dashboards_user_data_visualization_path, method: :get, local: true do %>
-  <div>
-    <label for="company_id">Selecionar Empresa:</label>
-    <%= select_tag :company_id, options_from_collection_for_select(@companies, :id, :name, @company_id), include_blank: "Todas", onchange: "this.form.submit()" %>
+  <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+    <div>
+      <label for="company_id">Selecionar Empresa:</label><br>
+      <%= select_tag :company_id, options_from_collection_for_select(@companies, :id, :name, @company_id), include_blank: "Todas", onchange: "this.form.submit()" %>
+    </div>
+
+    <div>
+      <label for="q_function_cont">Buscar Função:</label><br>
+      <%= text_field_tag 'q[function_or_name_or_position_cont]', params.dig(:q, :function_or_name_or_position_cont), placeholder: "Digite para filtrar..." %>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <%= submit_tag 'Buscar' %>
+    </div>
   </div>
 <% end %>
-
 <p>
   Nesta seção, apresentamos os dados dos colaboradores de forma anonimizada. As informações exibidas permitem analisar perfis individuais em comparação com a média da área correspondente.
 </p>
@@ -15,12 +25,24 @@
   <table id="users-table" style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center;">
     <thead>
       <tr>
-        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :company_tenure, "Tempo de Empresa") %></th>
-        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :function, "Função") %></th>
-        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :genre, "Gênero") %></th>
-        <th style="border-bottom: 1px solid #ccc; cursor: pointer;"><%= sort_link(@q, :generation, "Geração") %></th>
-        <th style="border-bottom: 1px solid #ccc;">Média eNPS Área</th>
-        <th style="border-bottom: 1px solid #ccc;">Média Satisfação Área</th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;">
+          <%= sort_link(@q, :company_tenure, "Tempo de Empresa") %>
+        </th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;">
+          <%= sort_link(@q, :function, "Função") %>
+        </th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;">
+          <%= sort_link(@q, :genre, "Gênero") %>
+        </th>
+        <th style="border-bottom: 1px solid #ccc; cursor: pointer;">
+          <%= sort_link(@q, :generation, "Geração") %>
+        </th>
+        <th style="border-bottom: 1px solid #ccc;">
+          Média eNPS Área
+        </th>
+        <th style="border-bottom: 1px solid #ccc;">
+          Média Satisfação Área
+        </th>
       </tr>
     </thead>
     <tbody>
