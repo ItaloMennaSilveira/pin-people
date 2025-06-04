@@ -15,85 +15,83 @@
   <ul>
     <li>Média: <%= @statistics[:mean].round(2) %></li>
     <li>Mediana: <%= @statistics[:median].round(2) %></li>
-    <li>Moda: <%= @statistics[:mode] ? @statistics[:mode].join(", ") : "Nenhuma" %></li>
+    <li>Moda: <%= @statistics[:mode].present? ? @statistics[:mode].join(", ") : "Nenhuma" %></li>
     <li>Variância: <%= @statistics[:variance].round(2) %></li>
     <li>Desvio padrão: <%= @statistics[:standard_deviation].round(2) %></li>
     <li>Mínimo: <%= @statistics[:min] %></li>
     <li>Máximo: <%= @statistics[:max] %></li>
     <li>Total de registros: <%= @statistics[:count] %></li>
   </ul>
+
+  <section>
+    <h2>Distribuição do Interesse no Cargo</h2>
+    <p>Este gráfico mostra a frequência de respostas para o interesse dos colaboradores em seus cargos.</p>
+    <div style="height: 350px; max-width: 600px;">
+      <canvas id="interestHistogram"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Distribuição do eNPS</h2>
+    <p>Este gráfico mostra a distribuição do eNPS entre os colaboradores, refletindo sua disposição para recomendar a empresa como um bom lugar para trabalhar.</p>
+    <div style="height: 350px; max-width: 600px;">
+      <canvas id="enpsHistogram"></canvas>
+    </div>
+  </section>
+
+  <script type="module">
+    import 'chart.js';
+
+    const interestCtx = document.getElementById('interestHistogram').getContext('2d');
+    const interestLabels = <%= raw @statistics[:interest_distribution]&.keys&.sort&.to_json || '[]' %>;
+    const interestData = <%= raw @statistics[:interest_distribution]&.values_at(*@statistics[:interest_distribution]&.keys&.sort || [])&.to_json || '[]' %>;
+
+    new Chart(interestCtx, {
+      type: 'bar',
+      data: {
+        labels: interestLabels,
+        datasets: [{
+          label: 'Número de Colaboradores',
+          data: interestData,
+          backgroundColor: '#4dc9f6'
+        }]
+      },
+      options: {
+        scales: {
+          x: { title: { display: true, text: 'Nível de Interesse' } },
+          y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    const enpsCtx = document.getElementById('enpsHistogram').getContext('2d');
+    const enpsLabels = <%= raw @statistics[:enps_distribution]&.keys&.sort&.to_json || '[]' %>;
+    const enpsData = <%= raw @statistics[:enps_distribution]&.values_at(*@statistics[:enps_distribution]&.keys&.sort || [])&.to_json || '[]' %>;
+
+    new Chart(enpsCtx, {
+      type: 'bar',
+      data: {
+        labels: enpsLabels,
+        datasets: [{
+          label: 'Número de Colaboradores',
+          data: enpsData,
+          backgroundColor: '#36a2eb'
+        }]
+      },
+      options: {
+        scales: {
+          x: { title: { display: true, text: 'eNPS' } },
+          y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
 <% else %>
   <p>Nenhum dado disponível para análise.</p>
 <% end %>
-
-<section>
-  <h2>Distribuição do Interesse no Cargo</h2>
-  <p>Este gráfico mostra a frequência de respostas para o interesse dos colaboradores em seus cargos.</p>
-  <div style="height: 350px; max-width: 600px;">
-    <canvas id="interestHistogram"></canvas>
-  </div>
-</section>
-
-<section>
-  <h2>Distribuição do eNPS</h2>
-  <p>Este gráfico mostra a distribuição do eNPS entre os colaboradores, refletindo sua disposição para recomendar a empresa como um bom lugar para trabalhar.</p>
-  <div style="height: 350px; max-width: 600px;">
-    <canvas id="enpsHistogram"></canvas>
-  </div>
-</section>
-
-<script type="module">
-  import 'chart.js';
-
-  // Gráfico de interesse
-  const interestCtx = document.getElementById('interestHistogram').getContext('2d');
-  const interestLabels = <%= raw @statistics[:interest_distribution].keys.sort.to_json %>;
-  const interestData = <%= raw @statistics[:interest_distribution].values_at(*@statistics[:interest_distribution].keys.sort).to_json %>;
-
-  new Chart(interestCtx, {
-    type: 'bar',
-    data: {
-      labels: interestLabels,
-      datasets: [{
-        label: 'Número de Colaboradores',
-        data: interestData,
-        backgroundColor: '#4dc9f6'
-      }]
-    },
-    options: {
-      scales: {
-        x: { title: { display: true, text: 'Nível de Interesse' } },
-        y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
-      },
-      plugins: {
-        legend: { display: false }
-      }
-    }
-  });
-
-  // Gráfico de eNPS
-  const enpsCtx = document.getElementById('enpsHistogram').getContext('2d');
-  const enpsLabels = <%= raw @statistics[:enps_distribution].keys.sort.to_json %>;
-  const enpsData = <%= raw @statistics[:enps_distribution].values_at(*@statistics[:enps_distribution].keys.sort).to_json %>;
-
-  new Chart(enpsCtx, {
-    type: 'bar',
-    data: {
-      labels: enpsLabels,
-      datasets: [{
-        label: 'Número de Colaboradores',
-        data: enpsData,
-        backgroundColor: '#36a2eb'
-      }]
-    },
-    options: {
-      scales: {
-        x: { title: { display: true, text: 'eNPS' } },
-        y: { beginAtZero: true, title: { display: true, text: 'Quantidade' } }
-      },
-      plugins: {
-        legend: { display: false }
-      }
-    }
-  });
-</script>

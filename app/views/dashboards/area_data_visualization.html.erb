@@ -6,6 +6,7 @@
       <label for="company_id"><strong>Selecionar Empresa:</strong></label><br>
       <%= select_tag :company_id,
           options_from_collection_for_select(@companies, :id, :name, @company_id),
+          include_blank: "Todas",
           onchange: "this.form.submit()" %>
     </div>
 
