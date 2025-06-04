@@ -32,4 +32,42 @@ class DashboardsController < ApplicationController
       @data = {}
     end
   end
+
+  def area_data_visualization
+    @companies = Department.where(level: 0)
+    @company_id = params[:company_id]&.to_i || @companies.first&.id
+
+    @departments = Department.where(company_id: @company_id).where.not(level: 0)
+    @department_id = params[:department_id]&.to_i if @departments.pluck(:id).include?(params[:department_id]&.to_i)
+
+    if @company_id
+      @data = AreaDataVisualizationService.new(
+        company_id: @company_id,
+        department_id: @department_id
+      ).call
+    else
+      @data = {}
+    end
+  end
+
+  def user_data_visualization
+    @companies = Department.where(level: 0).order(:name)
+    @company_id = params[:company_id].presence || @companies.first&.id
+
+    @page = (params[:page] || 1).to_i
+
+    if @company_id.present?
+      service = UserDataVisualizationService.new(@company_id)
+      result = service.call
+
+      @total_users_count = result[:users].size
+
+      @users = result[:users].slice((@page - 1) * 50, 50) || []
+      @area_averages = result[:area_averages]
+    else
+      @users = []
+      @area_averages = {}
+      @total_users_count = 0
+    end
+  end
 end

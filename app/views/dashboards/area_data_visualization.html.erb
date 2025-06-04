@@ -1,0 +1,61 @@
+<h1>Visualização de Dados - Nível Área</h1>
+
+<%= form_with url: dashboards_area_data_visualization_path, method: :get, local: true do %>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+    <div>
+      <label for="company_id"><strong>Selecionar Empresa:</strong></label><br>
+      <%= select_tag :company_id,
+          options_from_collection_for_select(@companies, :id, :name, @company_id),
+          onchange: "this.form.submit()" %>
+    </div>
+
+    <% if @departments.any? %>
+      <div>
+        <label for="department_id"><strong>Selecionar Área (opcional):</strong></label><br>
+        <%= select_tag :department_id,
+            options_from_collection_for_select(@departments, :id, :name, @department_id),
+            include_blank: "Todas",
+            onchange: "this.form.submit()" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<p>
+  Abaixo está o gráfico de eNPS por área, permitindo analisar comparativamente a percepção dos colaboradores em diferentes departamentos da empresa selecionada.
+</p>
+
+<% if @data[:enps_by_area].present? %>
+  <div style="height: 400px; max-width: 700px;">
+    <canvas id="enpsAreaChart"></canvas>
+  </div>
+<% else %>
+  <p>Não há dados suficientes para calcular o eNPS por área.</p>
+<% end %>
+
+<script type="module">
+  import 'chart.js';
+
+  <% if @data[:enps_by_area].present? %>
+    const ctx = document.getElementById('enpsAreaChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: <%= raw @data[:enps_by_area].map { |d| d[:department_name] }.to_json %>,
+        datasets: [{
+          label: 'eNPS',
+          data: <%= raw @data[:enps_by_area].map { |d| d[:enps] }.to_json %>,
+          backgroundColor: '#6366f1'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: 'eNPS' } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  <% end %>
+</script>
