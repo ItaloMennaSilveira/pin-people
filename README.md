@@ -87,23 +87,29 @@ This project runs via Docker. Ensure the following tools are installed:
 docker-compose up --build
 ```
 
-### 2. Seed the database
+### 2. Run the migrations
+
+```bash
+docker-compose exec web rails db:migrate
+```
+
+### 3. Seed the database
 
 ```bash
 docker-compose exec web rails db:seed
 ```
 
-### 3. Access via browser
+### 4. Access via browser
 
 Go to: `http://localhost:3000`
 
-### 4. Run the specs
+### 5. Run the specs
 
 ```bash
-docker-compose exec web bundle exec rspec spec/models
+docker-compose exec web bundle exec rspec
 ```
 
-### 5. API testing via Postman
+### 6. API testing via Postman
 
 Import the Postman collection in the root directory:
 
