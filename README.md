@@ -42,38 +42,27 @@ It consists of three main entities:
 * `SurveyResponse`: holds a fixed structure of survey data (based on the CSV format);
 * `Department`: represents organizational areas. It is self-referential, allowing nested hierarchies without requiring multiple models for company/department abstraction.
 
-2. [x] **Create a Basic Dashboard**
-   Accessible via the left menu under "Dashboard". It displays three different types of charts with distinct insights.
+2. [x] **Create a Basic Dashboard** - Accessible via the left menu under "Dashboard". It displays three different types of charts with distinct insights.
 
-3. [x] **Create a Test Suite**
-   RSpec tests were written for all Ruby files containing business logic, including models, services, and jobs.
+3. [x] **Create a Test Suite** - RSpec tests were written for all Ruby files containing business logic, including models, services, and jobs.
 
-4. [x] **Create a Docker Compose Setup**
-   The app is fully containerized using Docker and Docker Compose for easy setup and deployment.
+4. [x] **Create a Docker Compose Setup** - The app is fully containerized using Docker and Docker Compose for easy setup and deployment.
 
-5. [x] **Perform Exploratory Data Analysis (EDA)**
-   Accessible via the "Análise Exploratória" section. It includes three different data insights, two of which are visualized as charts.
+5. [x] **Perform Exploratory Data Analysis (EDA)** - Accessible from the the "Análise Exploratória" menu. It includes three different data insights, two of which are visualized as charts.
 
-6. [x] **Data Visualization – Company Level**
-   Accessible from the "Dados da Empresa" menu. Displays two charts with aggregated insights related to the company.
+6. [x] **Data Visualization – Company Level** - Accessible from the "Dados da Empresa" menu. Displays two charts with aggregated insights related to the company.
 
-7. [x] **Data Visualization – Area Level**
-   Accessible from the "Dados da Área" menu. Contains a graph comparing promoters vs. detractors across departments.
+7. [x] **Data Visualization – Area Level** - Accessible from the "Dados da Área" menu. Contains a graph comparing promoters vs. detractors across departments.
 
-8. [x] **Data Visualization – Employee Level**
-   Accessible from the "Dados do Usuário" menu. Includes a sortable, filterable table showing user data along with eNPS and satisfaction averages from their departments.
+8. [x] **Data Visualization – Employee Level** - Accessible from the "Dados do Usuário" menu. Includes a sortable, filterable table showing user data along with eNPS and satisfaction averages from their departments.
 
-9. [x] **Build a Simple API**
-   A RESTful API was developed for CRUD operations on users, departments, and survey responses. The data exploration and visual dashboards are not exposed through the API. The API documentation is available in the root directory as: `pin-people-api.postman_collection.json`
+9. [x] **Build a Simple API** - A RESTful API was developed for CRUD operations on users, departments, and survey responses. The data exploration and visual dashboards are not exposed through the API. The API documentation is available in the root directory as: `pin-people-api.postman_collection.json`
 
-10. [ ] **Sentiment Analysis**
-    This item was not implemented.
+10. [ ] **Sentiment Analysis** - This item was not implemented.
 
-11. [x] **Report Generation**
-    Although not explicitly implemented, most data is displayed via graphs and tables that can be interpreted as reporting outputs.
+11. [x] **Report Generation** - Although not explicitly implemented, most data is displayed via graphs and tables that can be interpreted as reporting outputs.
 
-12. [ ] **Creative Exploration**
-    This item was not implemented.
+12. [ ] **Creative Exploration** - This item was not implemented.
 
 ---
 
