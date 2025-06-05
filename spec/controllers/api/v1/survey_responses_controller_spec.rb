@@ -50,6 +50,13 @@ RSpec.describe 'Api::V1::SurveyResponsesController', type: :request do
       json = JSON.parse(response.body)
       expect(json['id']).to eq(survey_response.id)
     end
+
+    it 'returns not_found when survey_response does not exist' do
+      get "#{url}/0"
+      expect(response).to have_http_status(:not_found)
+      json = JSON.parse(response.body)
+      expect(json['error']).to eq('SurveyResponse not found')
+    end
   end
 
   describe 'CREATE /api/v1/survey_responses' do

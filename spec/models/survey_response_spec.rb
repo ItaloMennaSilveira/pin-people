@@ -13,6 +13,22 @@ RSpec.describe SurveyResponse, type: :model do
     it { should validate_presence_of(attr) }
   end
 
+  describe 'custom validations' do
+    it 'is invalid if response_date is in the future' do
+      survey_response = build(:survey_response, response_date: Date.tomorrow)
+      expect(survey_response).not_to be_valid
+      expect(survey_response.errors[:response_date]).to include("must not be in the future")
+    end
+
+    it 'is valid if response_date is today or in the past' do
+      survey_response_today = build(:survey_response, response_date: Date.today)
+      survey_response_past = build(:survey_response, response_date: Date.yesterday)
+
+      expect(survey_response_today).to be_valid
+      expect(survey_response_past).to be_valid
+    end
+  end
+
   describe 'scopes' do
     let!(:user1) { create(:user) }
     let!(:user2) { create(:user) }

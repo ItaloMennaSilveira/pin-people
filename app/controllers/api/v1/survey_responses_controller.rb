@@ -56,6 +56,8 @@ module Api
 
       def set_survey_response
         @survey_response = SurveyResponse.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'SurveyResponse not found' }, status: :not_found
       end
 
       def survey_response_params
