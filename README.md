@@ -33,8 +33,7 @@ Additional gems:
 
 Below is the list of proposed tasks. The ones completed in this project are marked:
 
-1. [x] **Create a Basic Database**
-   The database was modeled using [PostgreSQL](https://www.postgresql.org/) with a simple and normalized structure. Migrations were used to create tables and define constraints. Business rules were enforced through model validations, associations, scopes, callbacks, and custom methods. You can view the schema structure in the [database.svg](./database.svg) file.
+1. [x] **Create a Basic Database** - The database was modeled using [PostgreSQL](https://www.postgresql.org/) with a simple and normalized structure. Migrations were used to create tables and define constraints. Business rules were enforced through model validations, associations, scopes, callbacks, and custom methods. You can view the schema structure in the [database.svg](./database.svg) file.
 
 It consists of three main entities:
 
