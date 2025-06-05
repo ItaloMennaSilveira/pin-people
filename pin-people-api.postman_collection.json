@@ -44,7 +44,297 @@
 						},
 						"description": "Lista departamentos filtrados por nível"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": null,
+											"description": "Nível do departamento (company, area, team)",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"f348c52e6c17daa2130a88a9c51e0fc9\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "0de0f2f4-e91d-4704-b448-451a0ca09270"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.079751"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=0.49, instantiation.active_record;dur=0.95, process_action.action_controller;dur=59.00"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1229"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"departments\": [\n        {\n            \"id\": 2341,\n            \"name\": \"Company 0\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:04:06.990Z\",\n            \"updated_at\": \"2025-06-05T12:04:06.990Z\"\n        },\n        {\n            \"id\": 2344,\n            \"name\": \"Board 1\",\n            \"level\": \"board\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:41:41.866Z\",\n            \"updated_at\": \"2025-06-05T12:41:41.866Z\"\n        },\n        {\n            \"id\": 2345,\n            \"name\": \"Company DOIS\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:54:30.460Z\",\n            \"updated_at\": \"2025-06-05T12:54:30.460Z\"\n        },\n        {\n            \"id\": 2346,\n            \"name\": \"Company TRES\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:54:36.491Z\",\n            \"updated_at\": \"2025-06-05T12:54:36.491Z\"\n        },\n        {\n            \"id\": 2347,\n            \"name\": \"management\",\n            \"level\": \"management\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:54:58.607Z\",\n            \"updated_at\": \"2025-06-05T12:54:58.607Z\"\n        },\n        {\n            \"id\": 2348,\n            \"name\": \"coordination\",\n            \"level\": \"coordination\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:55:05.857Z\",\n            \"updated_at\": \"2025-06-05T12:55:05.857Z\"\n        },\n        {\n            \"id\": 2349,\n            \"name\": \"area\",\n            \"level\": \"area\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:55:13.071Z\",\n            \"updated_at\": \"2025-06-05T12:55:13.071Z\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"total_pages\": 1,\n        \"total_count\": 7\n    }\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments?level=board",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "board",
+											"description": "Nível do departamento (company, area, team)"
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"06785e1597161572b635548c3db65d81\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "7a4d756d-08ff-4195-a0ca-3c465bf53235"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.074877"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.48, instantiation.active_record;dur=0.03, process_action.action_controller;dur=59.22"
+								},
+								{
+									"key": "Content-Length",
+									"value": "235"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"departments\": [\n        {\n            \"id\": 2344,\n            \"name\": \"Board 1\",\n            \"level\": \"board\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:41:41.866Z\",\n            \"updated_at\": \"2025-06-05T12:41:41.866Z\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"total_pages\": 1,\n        \"total_count\": 1\n    }\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments?level=company",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "company",
+											"description": "Nível do departamento (company, area, team)"
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"ba93e0014126cd44ce4b46915834664a\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "39fa8c4e-54e8-4295-9081-1013529b03c1"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.072123"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.41, instantiation.active_record;dur=0.02, process_action.action_controller;dur=58.13"
+								},
+								{
+									"key": "Content-Length",
+									"value": "573"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"departments\": [\n        {\n            \"id\": 2341,\n            \"name\": \"Company 0\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:04:06.990Z\",\n            \"updated_at\": \"2025-06-05T12:04:06.990Z\"\n        },\n        {\n            \"id\": 2345,\n            \"name\": \"Company DOIS\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:54:30.460Z\",\n            \"updated_at\": \"2025-06-05T12:54:30.460Z\"\n        },\n        {\n            \"id\": 2346,\n            \"name\": \"Company TRES\",\n            \"level\": \"company\",\n            \"parent_id\": null,\n            \"company_id\": null,\n            \"created_at\": \"2025-06-05T12:54:36.491Z\",\n            \"updated_at\": \"2025-06-05T12:54:36.491Z\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"total_pages\": 1,\n        \"total_count\": 3\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/departments/:id",
@@ -72,7 +362,174 @@
 						},
 						"description": "Mostra um departamento com subdepartamentos aninhados"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "0db2376e-5a63-418a-9928-5a2ed9b52ca2"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.077205"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=0.46, process_action.action_controller;dur=61.42"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Department not found\"\n}"
+						},
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2348",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"4a3c646f5b2afd9248f4f8e7041a994c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "ec6501fe-bda3-4a26-8ba1-4c44f77481cc"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.095202"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.29, instantiation.active_record;dur=0.12, process_action.action_controller;dur=76.76"
+								},
+								{
+									"key": "Content-Length",
+									"value": "923"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2341,\n    \"name\": \"Company 0\",\n    \"level\": \"company\",\n    \"parent_id\": null,\n    \"company_id\": null,\n    \"created_at\": \"2025-06-05T12:04:06.990Z\",\n    \"updated_at\": \"2025-06-05T12:04:06.990Z\",\n    \"sub_departments\": [\n        {\n            \"id\": 2344,\n            \"name\": \"Board 1\",\n            \"level\": \"board\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:41:41.866Z\",\n            \"updated_at\": \"2025-06-05T12:41:41.866Z\",\n            \"sub_departments\": []\n        },\n        {\n            \"id\": 2347,\n            \"name\": \"management\",\n            \"level\": \"management\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:54:58.607Z\",\n            \"updated_at\": \"2025-06-05T12:54:58.607Z\",\n            \"sub_departments\": []\n        },\n        {\n            \"id\": 2348,\n            \"name\": \"coordination\",\n            \"level\": \"coordination\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:55:05.857Z\",\n            \"updated_at\": \"2025-06-05T12:55:05.857Z\",\n            \"sub_departments\": []\n        },\n        {\n            \"id\": 2349,\n            \"name\": \"area\",\n            \"level\": \"area\",\n            \"parent_id\": 2341,\n            \"company_id\": 2341,\n            \"created_at\": \"2025-06-05T12:55:13.071Z\",\n            \"updated_at\": \"2025-06-05T12:55:13.071Z\",\n            \"sub_departments\": []\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/departments",
@@ -81,7 +538,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"department\": {\n        \"name\": \"name\",\n        \"level\": \"company\"\n        // \"parent_id\": 1\n    }\n}",
+							"raw": "{\n    \"department\": {\n        \"name\": \"Board 1\",\n        \"level\": \"board\",\n        \"parent_id\": 2341\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -101,7 +558,426 @@
 						},
 						"description": "Cria um novo departamento"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"Company 0\",\n        \"level\": \"company\",\n        \"parent_id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "929a8ea9-f6b3-485c-ba88-e3cec6f2d19d"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.064222"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=53.71"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"errors\": [\n        \"Parent must be blank for company-level departments\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"Board 0\",\n        \"level\": \"board\"\n        // \"parent_id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "b56ea220-42d7-4a44-870d-8bff6d51b300"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.079029"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=60.41"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Parent must be present for non-company departments\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"Board 1\",\n        \"level\": \"board\",\n        \"parent_id\": 2341\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"7bde2ac82cede8167452a0fac7f137c5\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "7cadabf1-0b04-4c4a-ad72-72ebcb281feb"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.086622"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=2.74, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.12, transaction.active_record;dur=6.76, process_action.action_controller;dur=68.73"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2344,\n    \"name\": \"Board 1\",\n    \"level\": \"board\",\n    \"parent_id\": 2341,\n    \"company_id\": 2341,\n    \"created_at\": \"2025-06-05T12:41:41.866Z\",\n    \"updated_at\": \"2025-06-05T12:41:41.866Z\"\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"Board 1\",\n        \"level\": \"board\"\n        \"parent_id\": 2341\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "1f7c6729-1fb1-47da-8d59-9a09b001f9c6"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.068644"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=56.16"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Parent must be present for non-company departments\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"management de area\",\n        \"level\": \"management\",\n        \"parent_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "95dcf16c-b425-46a9-b273-d59b6f878f2e"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.086522"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=1.31, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.27, transaction.active_record;dur=1.54, process_action.action_controller;dur=58.85"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Parent must be of higher level than the current department\"\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/departments/:id",
@@ -138,7 +1014,192 @@
 						},
 						"description": "Atualiza um departamento"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"name\",\n        \"level\": \"company\",\n        \"parent_id\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2347",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "9a01da26-686d-4511-a5a2-c52437a81594"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.173709"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.08, sql.active_record;dur=3.41, instantiation.active_record;dur=2.84, process_action.action_controller;dur=75.36"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Parent must be blank for company-level departments\",\n        \"Level cannot be changed after creation\",\n        \"Parent cannot be changed after creation\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"department\": {\n        \"name\": \"management alterado\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2347",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"97914af4b0b68c2c7bad92499b484f24\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a9bf2a30-af6b-4bc9-9405-1bd683c3e1ac"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.099809"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=3.59, instantiation.active_record;dur=0.22, start_transaction.active_record;dur=0.00, transaction.active_record;dur=14.87, process_action.action_controller;dur=76.43"
+								},
+								{
+									"key": "Content-Length",
+									"value": "176"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"management alterado\",\n    \"level\": \"management\",\n    \"parent_id\": 2341,\n    \"company_id\": 2341,\n    \"id\": 2347,\n    \"created_at\": \"2025-06-05T12:54:58.607Z\",\n    \"updated_at\": \"2025-06-05T13:08:02.164Z\"\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/departments/:id",
@@ -165,7 +1226,156 @@
 						},
 						"description": "Remove um departamento"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "11111"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "be3e670a-418f-4416-94d9-c1f074af43fc"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.067936"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=0.36, process_action.action_controller;dur=50.62"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Department not found\"\n}"
+						},
+						{
+							"name": "api/v1/departments/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/departments/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"departments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2346"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d0486b23-8d7a-4dda-b2e6-8a3f75bfe847"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.098788"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=4.38, instantiation.active_record;dur=0.12, start_transaction.active_record;dur=0.00, transaction.active_record;dur=20.94, process_action.action_controller;dur=86.37"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
 				}
 			]
 		},
@@ -207,7 +1417,219 @@
 						},
 						"description": "Lista de respostas da pesquisa com filtros opcionais"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/departments Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses?user_id&page&per_page&start_date&end_date",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "Filtrar por ID do usuário"
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página"
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página"
+										},
+										{
+											"key": "start_date",
+											"value": null,
+											"description": "Data inicial para filtrar"
+										},
+										{
+											"key": "end_date",
+											"value": null,
+											"description": "Data final para filtrar"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"6bca875d1c1685cca03fabbb645c00fe\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "6922409c-3f50-48b8-bb46-95a6e359dfa9"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.079196"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.78, instantiation.active_record;dur=0.09, process_action.action_controller;dur=62.85"
+								},
+								{
+									"key": "Content-Length",
+									"value": "12345"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"survey_responses\": [\n        {\n            \"id\": 1,\n            \"user_id\": 6,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 1,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 1,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 6,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 6,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 2,\n            \"comments_permanence\": \"-\",\n            \"enps\": 5,\n            \"comments_enps\": \"A empresa tem um excelente ambiente de trabalho e equipe colaborativa.\",\n            \"created_at\": \"2025-06-05T17:34:41.035Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.035Z\"\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 7,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 1,\n            \"comments_interest\": \"-\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"Gostaria de liderar iniciativas que agreguem valor.\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 3,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 6,\n            \"comments_manager_interaction\": \"Meu gestor é acessível e apoia minha carreira.\",\n            \"career_clarity\": 2,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"-\",\n            \"enps\": 8,\n            \"comments_enps\": \"Sinto falta de mais oportunidades de crescimento profissional.\",\n            \"created_at\": \"2025-06-05T17:34:41.056Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.056Z\"\n        },\n        {\n            \"id\": 3,\n            \"user_id\": 8,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"-\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 7,\n            \"comments_learning\": \"-\",\n            \"feedback\": 7,\n            \"comments_feedback\": \"A comunicação sobre desempenho é clara.\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 2,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 7,\n            \"comments_permanence\": \"Pretendo continuar na empresa por muitos anos.\",\n            \"enps\": 9,\n            \"comments_enps\": \"Os benefícios oferecidos são bons, mas poderiam ser mais diversificados.\",\n            \"created_at\": \"2025-06-05T17:34:41.069Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.069Z\"\n        },\n        {\n            \"id\": 4,\n            \"user_id\": 9,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 5,\n            \"comments_interest\": \"-\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 6,\n            \"comments_learning\": \"-\",\n            \"feedback\": 5,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 5,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 1,\n            \"comments_permanence\": \"-\",\n            \"enps\": 8,\n            \"comments_enps\": \"A comunicação interna pode ser melhorada para evitar mal-entendidos.\",\n            \"created_at\": \"2025-06-05T17:34:41.081Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.081Z\"\n        },\n        {\n            \"id\": 5,\n            \"user_id\": 10,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 4,\n            \"comments_interest\": \"-\",\n            \"contribution\": 5,\n            \"comments_contribution\": \"Sinto que posso contribuir ainda mais com recursos adequados.\",\n            \"learning_and_development\": 6,\n            \"comments_learning\": \"-\",\n            \"feedback\": 5,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 7,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 7,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 1,\n            \"comments_permanence\": \"-\",\n            \"enps\": 1,\n            \"comments_enps\": \"Estou satisfeito com a cultura da empresa e como valorizam os funcionários.\",\n            \"created_at\": \"2025-06-05T17:34:41.103Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.103Z\"\n        },\n        {\n            \"id\": 6,\n            \"user_id\": 11,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 5,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 3,\n            \"comments_learning\": \"Gostaria de ter acesso a mais recursos educacionais.\",\n            \"feedback\": 4,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 4,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 3,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"-\",\n            \"enps\": 7,\n            \"comments_enps\": \"A carga de trabalho às vezes é excessiva e causa estresse.\",\n            \"created_at\": \"2025-06-05T17:34:41.109Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.109Z\"\n        },\n        {\n            \"id\": 7,\n            \"user_id\": 12,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 7,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 6,\n            \"comments_manager_interaction\": \"Sinto que meu gestor não está disponível quando preciso.\",\n            \"career_clarity\": 4,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 5,\n            \"comments_permanence\": \"-\",\n            \"enps\": 9,\n            \"comments_enps\": \"Gostaria de ver mais reconhecimento pelo trabalho bem feito.\",\n            \"created_at\": \"2025-06-05T17:34:41.113Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.113Z\"\n        },\n        {\n            \"id\": 8,\n            \"user_id\": 13,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"Estou satisfeito com meu cargo e vejo possibilidades de crescimento.\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 1,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 6,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 3,\n            \"comments_career_clarity\": \"Tenho clareza sobre as oportunidades de crescimento na empresa.\",\n            \"permanence_expectation\": 4,\n            \"comments_permanence\": \"-\",\n            \"enps\": 6,\n            \"comments_enps\": \"A liderança é inspiradora e sempre aberta a novas ideias.\",\n            \"created_at\": \"2025-06-05T17:34:41.119Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.119Z\"\n        },\n        {\n            \"id\": 9,\n            \"user_id\": 14,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 4,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 7,\n            \"comments_feedback\": \"Recebo feedbacks construtivos que me ajudam a melhorar.\",\n            \"manager_interaction\": 3,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 5,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 1,\n            \"comments_permanence\": \"-\",\n            \"enps\": 10,\n            \"comments_enps\": \"A empresa investe pouco em treinamentos e desenvolvimento.\",\n            \"created_at\": \"2025-06-05T17:34:41.123Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.123Z\"\n        },\n        {\n            \"id\": 10,\n            \"user_id\": 15,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"-\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 3,\n            \"comments_learning\": \"-\",\n            \"feedback\": 7,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 4,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 6,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 4,\n            \"comments_permanence\": \"-\",\n            \"enps\": 5,\n            \"comments_enps\": \"O equilíbrio entre vida pessoal e profissional é respeitado aqui.\",\n            \"created_at\": \"2025-06-05T17:34:41.127Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.127Z\"\n        },\n        {\n            \"id\": 11,\n            \"user_id\": 16,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"Gostaria de me envolver em iniciativas estratégicas.\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 7,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 1,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 2,\n            \"comments_permanence\": \"-\",\n            \"enps\": 1,\n            \"comments_enps\": \"Sinto que minhas contribuições são valorizadas pela equipe.\",\n            \"created_at\": \"2025-06-05T17:34:41.131Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.131Z\"\n        },\n        {\n            \"id\": 12,\n            \"user_id\": 17,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"Estou muito satisfeito com minhas responsabilidades atuais e vejo potencial de crescimento.\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 6,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 4,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 5,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 2,\n            \"comments_permanence\": \"-\",\n            \"enps\": 2,\n            \"comments_enps\": \"A infraestrutura do escritório precisa de melhorias.\",\n            \"created_at\": \"2025-06-05T17:34:41.142Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.142Z\"\n        },\n        {\n            \"id\": 13,\n            \"user_id\": 18,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"-\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 3,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 3,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 2,\n            \"comments_permanence\": \"-\",\n            \"enps\": 7,\n            \"comments_enps\": \"Gostaria de ter mais flexibilidade nos horários de trabalho.\",\n            \"created_at\": \"2025-06-05T17:34:41.149Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.149Z\"\n        },\n        {\n            \"id\": 14,\n            \"user_id\": 19,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 2,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"Tenho uma excelente relação profissional com meu gestor.\",\n            \"career_clarity\": 5,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"-\",\n            \"enps\": 3,\n            \"comments_enps\": \"A empresa promove eventos que fortalecem o espírito de equipe.\",\n            \"created_at\": \"2025-06-05T17:34:41.153Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.153Z\"\n        },\n        {\n            \"id\": 15,\n            \"user_id\": 20,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"-\",\n            \"contribution\": 3,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 3,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 7,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 3,\n            \"comments_permanence\": \"-\",\n            \"enps\": 5,\n            \"comments_enps\": \"Sinto que há falta de transparência nas decisões da gerência.\",\n            \"created_at\": \"2025-06-05T17:34:41.160Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.160Z\"\n        },\n        {\n            \"id\": 16,\n            \"user_id\": 21,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 5,\n            \"comments_contribution\": \"Gostaria de ser mais envolvido em projetos interdepartamentais.\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 7,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 5,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 5,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"-\",\n            \"enps\": 9,\n            \"comments_enps\": \"Os processos internos são burocráticos e dificultam a eficiência.\",\n            \"created_at\": \"2025-06-05T17:34:41.165Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.165Z\"\n        },\n        {\n            \"id\": 17,\n            \"user_id\": 22,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 2,\n            \"comments_interest\": \"-\",\n            \"contribution\": 3,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 2,\n            \"comments_learning\": \"-\",\n            \"feedback\": 3,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 3,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 3,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 2,\n            \"comments_permanence\": \"Estou considerando outras oportunidades fora da empresa.\",\n            \"enps\": 2,\n            \"comments_enps\": \"A remuneração é competitiva em relação ao mercado.\",\n            \"created_at\": \"2025-06-05T17:34:41.168Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.168Z\"\n        },\n        {\n            \"id\": 18,\n            \"user_id\": 23,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 7,\n            \"comments_contribution\": \"Estou motivado a contribuir para o sucesso da empresa.\",\n            \"learning_and_development\": 7,\n            \"comments_learning\": \"-\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 7,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 7,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 5,\n            \"comments_permanence\": \"-\",\n            \"enps\": 2,\n            \"comments_enps\": \"Gostaria de ver mais iniciativas de bem-estar para os funcionários.\",\n            \"created_at\": \"2025-06-05T17:34:41.172Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.172Z\"\n        },\n        {\n            \"id\": 19,\n            \"user_id\": 24,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 7,\n            \"comments_interest\": \"-\",\n            \"contribution\": 1,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 5,\n            \"comments_learning\": \"-\",\n            \"feedback\": 1,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 3,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 4,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 7,\n            \"comments_permanence\": \"-\",\n            \"enps\": 8,\n            \"comments_enps\": \"A empresa incentiva a inovação e a criatividade.\",\n            \"created_at\": \"2025-06-05T17:34:41.176Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.176Z\"\n        },\n        {\n            \"id\": 20,\n            \"user_id\": 25,\n            \"response_date\": \"2022-01-20\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"-\",\n            \"contribution\": 1,\n            \"comments_contribution\": \"-\",\n            \"learning_and_development\": 1,\n            \"comments_learning\": \"-\",\n            \"feedback\": 1,\n            \"comments_feedback\": \"-\",\n            \"manager_interaction\": 7,\n            \"comments_manager_interaction\": \"-\",\n            \"career_clarity\": 3,\n            \"comments_career_clarity\": \"-\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"-\",\n            \"enps\": 3,\n            \"comments_enps\": \"Sinto que a carga de trabalho não está distribuída de forma justa.\",\n            \"created_at\": \"2025-06-05T17:34:41.179Z\",\n            \"updated_at\": \"2025-06-05T17:34:41.179Z\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"total_pages\": 26,\n        \"total_count\": 502\n    }\n}"
+						},
+						{
+							"name": "api/v1/departments Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses?start_date=2025-06-04&end_date=2025-06-04",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": null,
+											"description": "Filtrar por ID do usuário",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "start_date",
+											"value": "2025-06-04",
+											"description": "Data inicial para filtrar"
+										},
+										{
+											"key": "end_date",
+											"value": "2025-06-04",
+											"description": "Data final para filtrar"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3834f6ba3941d02ac89d6be7e294a435\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "16ed0522-8e16-4463-a3f8-c8aa7a5fbedd"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.093725"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=2.75, instantiation.active_record;dur=0.32, process_action.action_controller;dur=64.42"
+								},
+								{
+									"key": "Content-Length",
+									"value": "667"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"survey_responses\": [\n        {\n            \"id\": 501,\n            \"user_id\": 35,\n            \"response_date\": \"2025-06-04\",\n            \"interest_in_position\": 6,\n            \"comments_interest\": \"Lorem Ipsum\",\n            \"contribution\": 6,\n            \"comments_contribution\": \"Lorem Ipsum\",\n            \"learning_and_development\": 6,\n            \"comments_learning\": \"Lorem Ipsum\",\n            \"feedback\": 6,\n            \"comments_feedback\": \"Lorem Ipsum\",\n            \"manager_interaction\": 6,\n            \"comments_manager_interaction\": \"Lorem Ipsum\",\n            \"career_clarity\": 6,\n            \"comments_career_clarity\": \"Lorem Ipsum\",\n            \"permanence_expectation\": 6,\n            \"comments_permanence\": \"Lorem Ipsum\",\n            \"enps\": 6,\n            \"comments_enps\": \"Lorem Ipsum\",\n            \"created_at\": \"2025-06-05T18:09:49.543Z\",\n            \"updated_at\": \"2025-06-05T18:09:49.543Z\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"total_pages\": 1,\n        \"total_count\": 1\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/survey_responses/:id",
@@ -234,7 +1656,174 @@
 						},
 						"description": "Exibe uma resposta específica da pesquisa"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "35",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"72cf78439c29bd1116305c23c90902b7\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "30928d9d-520a-4e9b-82ef-07747cec2af4"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.107857"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.09, sql.active_record;dur=1.72, instantiation.active_record;dur=2.25, process_action.action_controller;dur=55.28"
+								},
+								{
+									"key": "Content-Length",
+									"value": "728"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 35,\n    \"user_id\": 40,\n    \"response_date\": \"2022-01-20\",\n    \"interest_in_position\": 7,\n    \"comments_interest\": \"Tenho interesse em posições que envolvam gestão de pessoas.\",\n    \"contribution\": 6,\n    \"comments_contribution\": \"-\",\n    \"learning_and_development\": 7,\n    \"comments_learning\": \"-\",\n    \"feedback\": 5,\n    \"comments_feedback\": \"-\",\n    \"manager_interaction\": 2,\n    \"comments_manager_interaction\": \"Gostaria de ter reuniões mais frequentes com meu gestor.\",\n    \"career_clarity\": 7,\n    \"comments_career_clarity\": \"Sinto que há poucas oportunidades de promoção.\",\n    \"permanence_expectation\": 4,\n    \"comments_permanence\": \"-\",\n    \"enps\": 3,\n    \"comments_enps\": \"Gostaria de ter mais autonomia nas minhas tarefas diárias.\",\n    \"created_at\": \"2025-06-05T17:34:41.243Z\",\n    \"updated_at\": \"2025-06-05T17:34:41.243Z\"\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "123123123",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "05d75cef-9806-4ed2-b52f-5fd2cd861dff"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.234486"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.11, sql.active_record;dur=4.72, halted_callback.action_controller;dur=0.00, process_action.action_controller;dur=56.07"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"SurveyResponse not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/survey_responses",
@@ -251,18 +1840,352 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/survey_responses",
+							"raw": "{{url}}/api/v1/survey_responses",
 							"host": [
-								"{{url}}api"
+								"{{url}}"
 							],
 							"path": [
+								"api",
 								"v1",
 								"survey_responses"
 							]
 						},
 						"description": "Cria uma nova resposta da pesquisa"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/survey_responses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 35,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"62649b44affdda887cbbe9c6ed9adb86\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a71bf4a1-4d19-4cea-b204-9c56fa27388f"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.090376"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=5.69, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.81, transaction.active_record;dur=11.40, process_action.action_controller;dur=73.36"
+								},
+								{
+									"key": "Content-Length",
+									"value": "586"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 501,\n    \"user_id\": 35,\n    \"response_date\": \"2025-06-04\",\n    \"interest_in_position\": 6,\n    \"comments_interest\": \"Lorem Ipsum\",\n    \"contribution\": 6,\n    \"comments_contribution\": \"Lorem Ipsum\",\n    \"learning_and_development\": 6,\n    \"comments_learning\": \"Lorem Ipsum\",\n    \"feedback\": 6,\n    \"comments_feedback\": \"Lorem Ipsum\",\n    \"manager_interaction\": 6,\n    \"comments_manager_interaction\": \"Lorem Ipsum\",\n    \"career_clarity\": 6,\n    \"comments_career_clarity\": \"Lorem Ipsum\",\n    \"permanence_expectation\": 6,\n    \"comments_permanence\": \"Lorem Ipsum\",\n    \"enps\": 6,\n    \"comments_enps\": \"Lorem Ipsum\",\n    \"created_at\": \"2025-06-05T18:09:49.543Z\",\n    \"updated_at\": \"2025-06-05T18:09:49.543Z\"\n}"
+						},
+						{
+							"name": "api/v1/survey_responses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 1,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "fbc5fca2-f71d-412b-bfcc-359be4eafd68"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.093532"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=3.23, start_transaction.active_record;dur=0.00, transaction.active_record;dur=2.84, process_action.action_controller;dur=67.81"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"User must exist\",\n        \"User can't be blank\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 35,\n        \"response_date\": \"2025-06-12\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "ed5dffed-5d10-4bc5-b605-11374d8a71b3"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.225536"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.11, sql.active_record;dur=8.81, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=2.37, transaction.active_record;dur=9.98, process_action.action_controller;dur=77.11"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Response date não pode estar no futuro\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 35,\n        \"response_date\": \"2025-06-05\",\n\n        // \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "052a4217-c68d-4524-af05-73a812b776d6"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.083549"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=3.72, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.05, transaction.active_record;dur=3.20, process_action.action_controller;dur=58.45"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Interest in position can't be blank\",\n        \"Interest in position is not a number\"\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/survey_responses/:id",
@@ -271,7 +2194,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"survey_response\": {\n        \"user_id\": 1,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+							"raw": "{\n    \"survey_response\": {\n        \"user_id\": 34,\n        \"response_date\": \"2025-06-05\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -292,14 +2215,559 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "",
+									"value": "501",
 									"description": "ID do departamento"
 								}
 							]
 						},
 						"description": "Atualiza uma resposta da pesquisa"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 1,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12321312",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2a1867d6-70d9-448d-b158-04854726f2f1"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.081149"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.39, halted_callback.action_controller;dur=0.01, process_action.action_controller;dur=59.49"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"SurveyResponse not found\"\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 35,\n        \"response_date\": \"2025-06-14\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "2f0839ec-b1fe-4842-a8d8-bf88dc18f4f2"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.114102"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.82, instantiation.active_record;dur=30.30, start_transaction.active_record;dur=0.00, transaction.active_record;dur=32.36, process_action.action_controller;dur=92.55"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Response date must not be in the future\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 12312,\n        \"response_date\": \"2025-06-05\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e8a17a4c-1417-439e-aef5-abbd95c0df04"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.109457"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=6.53, instantiation.active_record;dur=0.04, start_transaction.active_record;dur=0.00, transaction.active_record;dur=9.70, process_action.action_controller;dur=78.50"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"User must exist\",\n        \"User can't be blank\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 34,\n        \"response_date\": \"2025-06-05\",\n\n        \"interest_in_position\": 12,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e06aee11-48b3-4d79-a722-daeae5e25d00"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.084790"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.31, instantiation.active_record;dur=0.07, start_transaction.active_record;dur=0.00, transaction.active_record;dur=2.75, process_action.action_controller;dur=64.91"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Interest in position must be less than or equal to 10\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 34,\n        \"response_date\": \"2025-06-05\",\n\n        \"interest_in_position\": -1,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "952d4139-363e-4122-973e-5a7e32975616"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.081021"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.25, instantiation.active_record;dur=0.06, start_transaction.active_record;dur=0.00, transaction.active_record;dur=1.61, process_action.action_controller;dur=63.98"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Interest in position must be greater than or equal to 0\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"survey_response\": {\n        \"user_id\": 34,\n        \"response_date\": \"2025-06-05\",\n\n        // \"interest_in_position\": -1,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"ed7b7005edefb288227ceabe880f92f9\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "e8485053-40fb-4c64-80a7-de4ff03811ad"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.082472"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.03, sql.active_record;dur=1.40, instantiation.active_record;dur=0.07, start_transaction.active_record;dur=0.00, transaction.active_record;dur=1.85, process_action.action_controller;dur=66.40"
+								},
+								{
+									"key": "Content-Length",
+									"value": "586"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 34,\n    \"response_date\": \"2025-06-05\",\n    \"comments_interest\": \"Lorem Ipsum\",\n    \"contribution\": 6,\n    \"comments_contribution\": \"Lorem Ipsum\",\n    \"learning_and_development\": 6,\n    \"comments_learning\": \"Lorem Ipsum\",\n    \"feedback\": 6,\n    \"comments_feedback\": \"Lorem Ipsum\",\n    \"manager_interaction\": 6,\n    \"comments_manager_interaction\": \"Lorem Ipsum\",\n    \"career_clarity\": 6,\n    \"comments_career_clarity\": \"Lorem Ipsum\",\n    \"permanence_expectation\": 6,\n    \"comments_permanence\": \"Lorem Ipsum\",\n    \"enps\": 6,\n    \"comments_enps\": \"Lorem Ipsum\",\n    \"interest_in_position\": 6,\n    \"id\": 501,\n    \"created_at\": \"2025-06-05T18:09:49.543Z\",\n    \"updated_at\": \"2025-06-05T18:27:44.032Z\"\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/survey_responses/:id",
@@ -326,7 +2794,156 @@
 						},
 						"description": "Remove uma resposta da pesquisa"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1234"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d02cb7e3-8689-4780-bfb3-b744f90ec07c"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.081130"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.59, halted_callback.action_controller;dur=0.00, process_action.action_controller;dur=59.90"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"SurveyResponse not found\"\n}"
+						},
+						{
+							"name": "api/v1/survey_responses/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/survey_responses/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"survey_responses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "501"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "970fde47-0100-43d7-89b6-11842ecfabc3"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.083641"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=2.45, instantiation.active_record;dur=0.36, start_transaction.active_record;dur=0.00, transaction.active_record;dur=2.17, process_action.action_controller;dur=61.80"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
 				}
 			]
 		},
@@ -368,7 +2985,763 @@
 						},
 						"description": "Lista de usuários com filtros opcionais"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?department_id=2349",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento"
+										},
+										{
+											"key": "function",
+											"value": null,
+											"description": "Filtrar por função",
+											"disabled": true
+										},
+										{
+											"key": "position",
+											"value": null,
+											"description": "Filtrar por cargo",
+											"disabled": true
+										},
+										{
+											"key": "company_tenure",
+											"value": null,
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": null,
+											"description": "Filtrar por gênero",
+											"disabled": true
+										},
+										{
+											"key": "generation",
+											"value": null,
+											"description": "Filtrar por geração",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "faa83576-71a0-49e9-bf19-1f65fbe47a66"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.089788"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.48, instantiation.active_record;dur=0.02, process_action.action_controller;dur=60.69"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?function=gestor",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento",
+											"disabled": true
+										},
+										{
+											"key": "function",
+											"value": "gestor",
+											"description": "Filtrar por função"
+										},
+										{
+											"key": "position",
+											"value": null,
+											"description": "Filtrar por cargo",
+											"disabled": true
+										},
+										{
+											"key": "company_tenure",
+											"value": null,
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": null,
+											"description": "Filtrar por gênero",
+											"disabled": true
+										},
+										{
+											"key": "generation",
+											"value": null,
+											"description": "Filtrar por geração",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "7e63b5fb-7203-46f9-8e75-b0f19e8ae8a2"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.076811"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.00, sql.active_record;dur=0.46, instantiation.active_record;dur=0.03, process_action.action_controller;dur=56.96"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?position=gerente",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento",
+											"disabled": true
+										},
+										{
+											"key": "function",
+											"value": "gestor",
+											"description": "Filtrar por função",
+											"disabled": true
+										},
+										{
+											"key": "position",
+											"value": "gerente",
+											"description": "Filtrar por cargo"
+										},
+										{
+											"key": "company_tenure",
+											"value": null,
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": null,
+											"description": "Filtrar por gênero",
+											"disabled": true
+										},
+										{
+											"key": "generation",
+											"value": null,
+											"description": "Filtrar por geração",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "175e3211-b2a9-478e-aef2-15d38678cbd8"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.079291"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.03, sql.active_record;dur=1.05, instantiation.active_record;dur=0.07, process_action.action_controller;dur=62.10"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?genre=male",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento",
+											"disabled": true
+										},
+										{
+											"key": "function",
+											"value": "gestor",
+											"description": "Filtrar por função",
+											"disabled": true
+										},
+										{
+											"key": "position",
+											"value": "gerente",
+											"description": "Filtrar por cargo",
+											"disabled": true
+										},
+										{
+											"key": "company_tenure",
+											"value": "less_than_one_year",
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "male",
+											"description": "Filtrar por gênero"
+										},
+										{
+											"key": "generation",
+											"value": null,
+											"description": "Filtrar por geração",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "055da103-c3a2-473f-a750-b6d9513b83af"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.072096"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.47, instantiation.active_record;dur=0.02, process_action.action_controller;dur=55.87"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?genre=male",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento",
+											"disabled": true
+										},
+										{
+											"key": "function",
+											"value": "gestor",
+											"description": "Filtrar por função",
+											"disabled": true
+										},
+										{
+											"key": "position",
+											"value": "gerente",
+											"description": "Filtrar por cargo",
+											"disabled": true
+										},
+										{
+											"key": "company_tenure",
+											"value": "less_than_one_year",
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "male",
+											"description": "Filtrar por gênero"
+										},
+										{
+											"key": "generation",
+											"value": null,
+											"description": "Filtrar por geração",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "c3aad4e0-fa33-495c-bb35-d30b7f7783b7"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.078285"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.46, instantiation.active_record;dur=0.03, process_action.action_controller;dur=63.37"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users?genre=male&generation=gen_x",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": null,
+											"description": "Número da página",
+											"disabled": true
+										},
+										{
+											"key": "per_page",
+											"value": null,
+											"description": "Itens por página",
+											"disabled": true
+										},
+										{
+											"key": "department_id",
+											"value": "2349",
+											"description": "Filtrar por ID de departamento",
+											"disabled": true
+										},
+										{
+											"key": "function",
+											"value": "gestor",
+											"description": "Filtrar por função",
+											"disabled": true
+										},
+										{
+											"key": "position",
+											"value": "gerente",
+											"description": "Filtrar por cargo",
+											"disabled": true
+										},
+										{
+											"key": "company_tenure",
+											"value": "less_than_one_year",
+											"description": "Filtrar por tempo de empresa",
+											"disabled": true
+										},
+										{
+											"key": "genre",
+											"value": "male",
+											"description": "Filtrar por gênero"
+										},
+										{
+											"key": "generation",
+											"value": "gen_x",
+											"description": "Filtrar por geração"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"dc07da8c9126f525257b27cd2cc1743c\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "c11a09fa-21b9-4d28-a1fa-1c746466b1a1"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.075840"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.50, instantiation.active_record;dur=0.02, process_action.action_controller;dur=61.45"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_count\": 1,\n    \"users\": [\n        {\n            \"id\": 2,\n            \"name\": \"name1\",\n            \"email\": \"name1@user.com\",\n            \"company_email\": \"name1@company.com\",\n            \"function\": \"gestor\",\n            \"position\": \"gerente\",\n            \"company_tenure\": \"less_than_one_year\",\n            \"genre\": \"male\",\n            \"generation\": \"gen_x\",\n            \"department_id\": 2349\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/users/:id",
@@ -395,7 +3768,174 @@
 						},
 						"description": "Exibe um usuário específico"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "123",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "1850a865-36f9-4161-9771-861367636bbd"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.080595"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.02, process_action.action_controller;dur=56.58"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3146a49475396b36b1a3f48fd7bec99e\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "9268b9d2-0cf7-4aff-97de-4c8ff8042075"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.082589"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.46, instantiation.active_record;dur=0.16, process_action.action_controller;dur=64.86"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"name1\",\n    \"email\": \"name1@user.com\",\n    \"company_email\": \"name1@company.com\",\n    \"position\": \"gerente\",\n    \"function\": \"gestor\",\n    \"city\": \"porto alegre\",\n    \"company_tenure\": \"less_than_one_year\",\n    \"genre\": \"male\",\n    \"generation\": \"gen_x\",\n    \"department_id\": 2349,\n    \"created_at\": \"2025-06-05T15:11:46.773Z\",\n    \"updated_at\": \"2025-06-05T15:11:46.773Z\"\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/users",
@@ -404,7 +3944,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 1\n    }\n}",
+							"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name2@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"x\",\n        \"department_id\": 2349\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -412,18 +3952,516 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/v1/users",
+							"raw": "{{url}}/api/v1/users",
 							"host": [
-								"{{url}}api"
+								"{{url}}"
 							],
 							"path": [
+								"api",
 								"v1",
 								"users"
 							]
 						},
 						"description": "Cria um novo usuário"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"47e7ff5f99ee7d9c10dfeef01a55d381\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "4b24f090-c9fc-433a-9528-6975a90ca45b"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.117167"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=3.21, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.10, transaction.active_record;dur=12.76, process_action.action_controller;dur=84.92"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"name1\",\n    \"email\": \"name1@user.com\",\n    \"company_email\": \"name1@company.com\",\n    \"position\": \"gerente\",\n    \"function\": \"gestor\",\n    \"city\": \"porto alegre\",\n    \"company_tenure\": \"less_than_one_year\",\n    \"genre\": \"male\",\n    \"generation\": \"gen_x\",\n    \"department_id\": 2349,\n    \"created_at\": \"2025-06-05T15:08:36.467Z\",\n    \"updated_at\": \"2025-06-05T15:08:36.467Z\"\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "ab22e443-791b-4ee8-9ab5-1d3e94bab244"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.088316"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.38, start_transaction.active_record;dur=0.00, instantiation.active_record;dur=0.01, transaction.active_record;dur=1.80, process_action.action_controller;dur=72.27"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Company email has already been taken\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name2@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 23491\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "c688a501-c8df-4199-abc1-0ae3a8b4c4d6"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.072662"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.39, process_action.action_controller;dur=53.11"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Department not found\"\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name2@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"x\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "5464bce4-52d4-4bfb-a8a5-dec32313efbd"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.076477"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=59.59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'x' is not a valid company_tenure\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name2@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"x\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "b75537f8-c732-4449-ba82-05a76128f61c"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.076431"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=61.91"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'x' is not a valid genre\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name2@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "8f01b06c-a50e-489d-8dd4-afab4dca0923"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.076769"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, process_action.action_controller;dur=60.97"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'x' is not a valid generation\"\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/users/:id",
@@ -432,7 +4470,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 1\n    }\n}",
+							"raw": "{\n    \"user\": {\n        \"name\": \"name1213\"\n        // \"email\": \"name1@user.com\",\n        // \"function\": \"gestor\",\n        // \"position\": \"gerente\",\n        // \"city\": \"porto alegre\",\n        // \"company_tenure\": \"more_than_five_years\",\n        // \"genre\": \"male\",\n        // \"generation\": \"gen_x\",\n        // \"department_id\": 2349\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -453,14 +4491,653 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "",
+									"value": "2",
 									"description": "ID do departamento"
 								}
 							]
 						},
 						"description": "Atualiza um usuário"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        // \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"05541331a167abab334e44d5ef4e6af5\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "33b1f4e2-4c6c-475c-b069-1f3f326b62de"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.104455"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=4.55, instantiation.active_record;dur=10.23, start_transaction.active_record;dur=0.00, transaction.active_record;dur=6.83, process_action.action_controller;dur=80.68"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"name1\",\n    \"email\": \"name1@user.com\",\n    \"position\": \"gerente\",\n    \"function\": \"gestor\",\n    \"city\": \"porto alegre\",\n    \"company_tenure\": \"less_than_one_year\",\n    \"genre\": \"male\",\n    \"generation\": \"gen_x\",\n    \"department_id\": 2349,\n    \"company_email\": \"name1@company.com\",\n    \"id\": 2,\n    \"created_at\": \"2025-06-05T15:11:46.773Z\",\n    \"updated_at\": \"2025-06-05T15:11:46.773Z\"\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1123@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 2349\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "7d29eff9-c4d3-49c4-9b98-ade253227bed"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.082293"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=1.44, instantiation.active_record;dur=0.33, start_transaction.active_record;dur=0.00, transaction.active_record;dur=1.49, process_action.action_controller;dur=65.64"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Company email cannot be changed once set\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1213\",\n        \"email\": \"name1@user.com\",\n        // \"company_email\": \"name1123@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 123\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "b1a5be98-63ab-4aad-a9ce-0c654ead1c77"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.086335"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=2.92, instantiation.active_record;dur=0.09, start_transaction.active_record;dur=0.00, transaction.active_record;dur=3.70, process_action.action_controller;dur=68.80"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"Department must reference a valid department\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1213\",\n        \"email\": \"name1@user.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"asd\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\"\n        // \"department_id\": 123\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "f249cb0c-5127-479b-943c-7de4645a4c55"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.085100"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=0.40, instantiation.active_record;dur=0.07, process_action.action_controller;dur=66.83"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'asd' is not a valid company_tenure\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1213\",\n        \"email\": \"name1@user.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        // \"company_tenure\": \"asd\",\n        \"genre\": \"maasdle\",\n        \"generation\": \"gen_x\"\n        // \"department_id\": 123\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "d7212a74-0751-41e3-8de5-40440f31dc9b"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.079887"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.39, instantiation.active_record;dur=0.04, process_action.action_controller;dur=59.32"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'maasdle' is not a valid genre\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1213\",\n        \"email\": \"name1@user.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        // \"company_tenure\": \"asd\",\n        // \"genre\": \"maasdle\",\n        \"generation\": \"gen_ax\"\n        // \"department_id\": 123\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "a0c4a7b1-d0ae-44b0-ae22-19beac2fae68"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.077521"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=0.42, instantiation.active_record;dur=0.04, process_action.action_controller;dur=60.86"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        \"'gen_ax' is not a valid generation\"\n    ]\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"name\": \"name1213\",\n        \"email\": \"name1@user.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"more_than_five_years\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\"\n        // \"department_id\": 123\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "ID do departamento"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"e1a039f59c6e1595f16ae0d23071c2a1\""
+								},
+								{
+									"key": "cache-control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "x-request-id",
+									"value": "77c63795-8de1-4216-9d5c-aa82916d7805"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.083049"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.02, sql.active_record;dur=2.72, instantiation.active_record;dur=0.15, start_transaction.active_record;dur=0.00, transaction.active_record;dur=3.34, process_action.action_controller;dur=63.30"
+								},
+								{
+									"key": "Content-Length",
+									"value": "327"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"name1213\",\n    \"email\": \"name1@user.com\",\n    \"position\": \"gerente\",\n    \"function\": \"gestor\",\n    \"city\": \"porto alegre\",\n    \"company_tenure\": \"more_than_five_years\",\n    \"genre\": \"male\",\n    \"generation\": \"gen_x\",\n    \"company_email\": \"name1@company.com\",\n    \"id\": 2,\n    \"department_id\": 2349,\n    \"created_at\": \"2025-06-05T15:11:46.773Z\",\n    \"updated_at\": \"2025-06-05T16:47:52.614Z\"\n}"
+						}
+					]
 				},
 				{
 					"name": "api/v1/users/:id",
@@ -487,7 +5164,156 @@
 						},
 						"description": "Remove um usuário"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1234"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "vary",
+									"value": "Accept"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "971db889-3e60-4209-9a6a-dd129937bde0"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.188947"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.11, sql.active_record;dur=3.64, process_action.action_controller;dur=61.27"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						},
+						{
+							"name": "api/v1/users/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-permitted-cross-domain-policies",
+									"value": "none"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "x-request-id",
+									"value": "62101466-55be-4bc8-b08a-07fc014467d4"
+								},
+								{
+									"key": "x-runtime",
+									"value": "0.097860"
+								},
+								{
+									"key": "server-timing",
+									"value": "start_processing.action_controller;dur=0.01, sql.active_record;dur=3.41, instantiation.active_record;dur=2.73, start_transaction.active_record;dur=0.00, transaction.active_record;dur=8.00, process_action.action_controller;dur=82.42"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
 				}
 			]
 		}
