@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject do
-    FactoryBot.create(:user, department: FactoryBot.create(:department))
+    company = FactoryBot.create(:department, level: :company)
+    department = FactoryBot.create(:department, parent: company)
+    FactoryBot.create(:user, department: department)
   end
 
   it { should validate_presence_of(:company_email) }
   it { should validate_uniqueness_of(:company_email) }
 
-  it { should belong_to(:department) }
+  it { should belong_to(:department).optional }
   it { should have_many(:survey_responses).dependent(:destroy) }
 
   it { should define_enum_for(:company_tenure) }
@@ -16,8 +18,11 @@ RSpec.describe User, type: :model do
   it { should define_enum_for(:generation) }
 
   describe 'scopes' do
-    let(:department_1) { create(:department) }
-    let(:department_2) { create(:department) }
+    let!(:company_1) { create(:department, level: :company) }
+    let!(:company_2) { create(:department, level: :company) }
+
+    let!(:department_1) { create(:department, parent: company_1) }
+    let!(:department_2) { create(:department, parent: company_2) }
 
     let!(:user_1) do
       create(:user,
@@ -76,6 +81,13 @@ RSpec.describe User, type: :model do
       create_list(:survey_response, 3, user: user)
 
       expect { user.destroy }.to change { SurveyResponse.count }.by(-3)
+    end
+  end
+
+  describe 'department optional' do
+    it 'allows user without a department' do
+      user = build(:user, department: nil)
+      expect(user).to be_valid
     end
   end
 end

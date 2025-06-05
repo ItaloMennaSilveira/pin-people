@@ -1,15 +1,24 @@
 FactoryBot.define do
   factory :user do
-    name { Faker::Name.name }
-    email { Faker::Internet.unique.email }
-    company_email { Faker::Internet.unique.email(domain: 'empresa.com') }
-    position { Faker::Job.position }
-    function { Faker::Job.field }
-    city { Faker::Address.city }
-    company_tenure { User.company_tenures.keys.sample }
-    genre { User.genres.keys.sample }
-    generation { User.generations.keys.sample }
+    sequence(:name)  { |n| "User #{n}" }
+    sequence(:email) { |n| "user#{n}@example.com" }
+    company_email { |n| "user#{n}@company.com" }
+    genre { :male }
+    generation { :gen_z }
+    company_tenure { :less_than_one_year }
+    function { 'Employee' }
+    position { 'Junior' }
 
-    association :department
+    trait :with_department do
+      after(:build) do |user|
+        company = Department.find_by(level: :company) ||
+                  Department.create!(name: 'Company Root', level: :company)
+
+        department = Department.find_by(parent: company) ||
+                     Department.create!(name: 'Departamento Filho', level: :department, parent: company)
+
+        user.department = department
+      end
+    end
   end
 end

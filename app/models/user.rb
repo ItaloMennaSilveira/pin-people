@@ -16,10 +16,11 @@ class User < ApplicationRecord
 
   enum :genre, { male: 0, female: 1, other: 2 }
 
-  belongs_to :department
+  belongs_to :department, optional: true
   has_many :survey_responses, dependent: :destroy
 
   validates :company_email, presence: true, uniqueness: true
+  validate :department_must_exist_if_provided
 
   scope :by_department, ->(id) { where(department_id: id) if id.present? }
   scope :by_function, ->(function) { where(function: function) if function.present? }
@@ -30,19 +31,8 @@ class User < ApplicationRecord
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[
-      id
-      company_tenure
-      function
-      genre
-      generation
-      department_id
-      company_email
-      city
-      created_at
-      updated_at
-      name
-      position
-      id_value
+      id company_tenure function genre generation department_id
+      company_email city created_at updated_at name position id_value
     ]
   end
 
@@ -63,19 +53,22 @@ class User < ApplicationRecord
 
     averages.each_value do |score|
       case score
-      when 1..2
-        distribution['1-2'] += 1
-      when 3..4
-        distribution['3-4'] += 1
-      when 5..6
-        distribution['5-6'] += 1
-      when 7..8
-        distribution['7-8'] += 1
-      when 9..10
-        distribution['9-10'] += 1
+      when 1..2 then distribution['1-2'] += 1
+      when 3..4 then distribution['3-4'] += 1
+      when 5..6 then distribution['5-6'] += 1
+      when 7..8 then distribution['7-8'] += 1
+      when 9..10 then distribution['9-10'] += 1
       end
     end
 
     distribution
+  end
+
+  def department_must_exist_if_provided
+    return if department_id.blank?
+
+    return if Department.exists?(department_id)
+
+    errors.add(:department_id, 'must reference a valid department')
   end
 end

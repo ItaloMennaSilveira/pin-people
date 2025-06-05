@@ -33,39 +33,38 @@ module Api
       end
 
       def create
-        return render json: { error: 'Department not found' }, status: :not_found if invalid_department_id?
-
         user = User.new(user_params)
-
         if user.save
           render json: user, status: :created
         else
           render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
+      rescue ArgumentError => e
+        render json: { errors: [e.message] }, status: :unprocessable_entity
       end
 
       def update
-        return render json: { error: 'Department not found' }, status: :not_found if invalid_department_id?
-
         user = User.find(params[:id])
         if user.update(user_params)
           render json: user, status: :ok
         else
           render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'User not found' }, status: :not_found
+      rescue ArgumentError => e
+        render json: { errors: [e.message] }, status: :unprocessable_entity
       end
 
       def destroy
         user = User.find(params[:id])
         user.destroy
         head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: 'User not found' }, status: :not_found
       end
 
       private
-
-      def invalid_department_id?
-        user_params[:department_id].present? && !Department.exists?(id: user_params[:department_id])
-      end
 
       def user_params
         params.require(:user).permit(
