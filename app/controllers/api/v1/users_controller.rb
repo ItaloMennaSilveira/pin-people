@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
       def index
         users = User.all
                     .by_department(params[:department_id])

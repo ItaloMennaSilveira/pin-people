@@ -1,6 +1,8 @@
 module Api
   module V1
     class DepartmentsController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
       def index
         departments = Department
                       .by_level(params[:level])
