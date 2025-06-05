@@ -41,10 +41,6 @@ module Api
       def create
         department = Department.new(department_params)
 
-        if department.company? && department.parent_id.present?
-          return render json: { error: 'Company-level departments cannot have a parent' }, status: :unprocessable_entity
-        end
-
         if department.save
           render json: department, status: :created
         else
@@ -54,10 +50,6 @@ module Api
 
       def update
         department = Department.find(params[:id])
-
-        if department_params[:level] == 'company' && department_params[:parent_id].present?
-          return render json: { error: 'Company-level departments cannot have a parent' }, status: :unprocessable_entity
-        end
 
         if department.update(department_params)
           render json: department, status: :ok

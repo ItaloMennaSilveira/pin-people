@@ -13,6 +13,9 @@ class Department < ApplicationRecord
 
   scope :by_level, ->(level) { where(level: level) if level.present? }
 
+  validate :parent_presence_and_level_consistency
+  validate :immutable_attributes_on_update, on: :update
+
   before_save :set_company_id
   before_destroy :destroy_sub_departments
   before_destroy :nullify_users
@@ -34,7 +37,8 @@ class Department < ApplicationRecord
   end
 
   def nullify_users
-    department_users.update_all(department_id: nil)
+    all_department_ids = [id] + sub_departments_ids
+    User.where(department_id: all_department_ids).update_all(department_id: nil)
   end
 
   def set_company_id
@@ -43,5 +47,23 @@ class Department < ApplicationRecord
                       else
                         parent&.root_department&.id
                       end
+  end
+
+  def parent_presence_and_level_consistency
+    if company?
+      errors.add(:parent_id, 'must be blank for company-level departments') if parent_id.present?
+    elsif parent.blank?
+      errors.add(:parent_id, 'must be present for non-company departments')
+    elsif Department.levels[parent.level] >= Department.levels[level]
+      errors.add(:parent_id, 'must be of higher level than the current department')
+    end
+  end
+
+  def immutable_attributes_on_update
+    immutable_fields = %w[level parent_id company_id]
+
+    immutable_fields.each do |field|
+      errors.add(field.to_sym, 'cannot be changed after creation') if send("#{field}_changed?")
+    end
   end
 end

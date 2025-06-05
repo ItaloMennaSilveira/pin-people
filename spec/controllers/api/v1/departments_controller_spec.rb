@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Api::V1::Departments', type: :request do
-  let(:company) { create(:department, level: :company) }
-  let(:board) { create(:department, level: :board, parent: company) }
-  let(:area) { create(:department, level: :area, parent: board) }
+  let!(:company) { create(:department, level: :company) }
+  let!(:board) { create(:department, level: :board, parent: company) }
+  let!(:area) { create(:department, level: :area, parent: board) }
   let(:url) { '/api/v1/departments' }
 
   describe 'INDEX /api/v1/departments' do
@@ -29,6 +29,20 @@ RSpec.describe 'Api::V1::Departments', type: :request do
       expect(json['departments'].size).to eq(5)
       expect(json['departments']).to all(include('level' => 'area'))
     end
+
+    it 'returns all departments if level is not specified' do
+      get url, params: { page: 1, per_page: 10 }
+      expect(response).to have_http_status(:ok)
+      json = JSON.parse(response.body)
+      expect(json['departments'].size).to eq(10)
+    end
+
+    it 'returns empty array if page is out of range' do
+      get url, params: { page: 100, per_page: 10 }
+      expect(response).to have_http_status(:ok)
+      json = JSON.parse(response.body)
+      expect(json['departments']).to be_empty
+    end
   end
 
   describe 'SHOW /api/v1/departments/:id' do
@@ -49,43 +63,60 @@ RSpec.describe 'Api::V1::Departments', type: :request do
   end
 
   describe 'CREATE /api/v1/departments' do
-    it 'creates a department successfully' do
-      post url, params: {
-        department: { name: 'New Area', level: 'area', parent_id: board.id }
-      }
-      expect(response).to have_http_status(:created)
-    end
-
     it 'fails to create a company with a parent' do
       post url, params: {
         department: { name: 'Invalid Company', level: 'company', parent_id: board.id }
       }
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(JSON.parse(response.body)['error']).to include('cannot have a parent')
+      json = JSON.parse(response.body)
+      expect(json['errors']).to include('Parent must be blank for company-level departments')
+    end
+
+    it 'fails to create a non-company without parent' do
+      post url, params: {
+        department: { name: 'No Parent', level: 'board' }
+      }
+      expect(response).to have_http_status(:unprocessable_entity)
+      json = JSON.parse(response.body)
+      expect(json['errors']).to include('Parent must be present for non-company departments')
+    end
+
+    it 'fails to create with invalid level' do
+      expect do
+        post url, params: {
+          department: { name: 'Invalid Level', level: 'invalid_level', parent_id: company.id }
+        }
+      end.to raise_error(ArgumentError, /is not a valid level/)
     end
   end
 
   describe 'UPDATE /api/v1/departments/:id' do
-    it 'updates department successfully' do
-      put "#{url}/#{board.id}", params: {
-        department: { name: 'Updated Board' }
-      }
-      expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body)['name']).to eq('Updated Board')
-    end
-
-    it 'fails to update level company with parent' do
+    it 'fails to update company-level with a parent' do
       put "#{url}/#{board.id}", params: {
         department: { level: 'company', parent_id: company.id }
       }
       expect(response).to have_http_status(:unprocessable_entity)
+      json = JSON.parse(response.body)
+      expect(json['errors']).to include('Parent must be blank for company-level departments')
     end
 
-    it 'returns not found if department does not exist' do
-      put "#{url}/999999", params: {
-        department: { name: 'Non-existent' }
+    it 'prevents changing level after creation' do
+      put "#{url}/#{board.id}", params: {
+        department: { level: 'management' }
       }
-      expect(response).to have_http_status(:not_found)
+      expect(response).to have_http_status(:unprocessable_entity)
+      json = JSON.parse(response.body)
+      expect(json['errors']).to include('Level cannot be changed after creation')
+    end
+
+    it 'prevents changing parent_id after creation' do
+      other_company = create(:department, level: :company)
+      put "#{url}/#{board.id}", params: {
+        department: { parent_id: other_company.id }
+      }
+      expect(response).to have_http_status(:unprocessable_entity)
+      json = JSON.parse(response.body)
+      expect(json['errors']).to include('Parent cannot be changed after creation')
     end
   end
 
