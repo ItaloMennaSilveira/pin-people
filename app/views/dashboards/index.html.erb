@@ -20,7 +20,7 @@
     <p style="margin-bottom: 1rem; color: #555; text-align: justify;">
       Este gráfico apresenta quantos colaboradores atribuíram determinadas notas médias para o quanto estão interessados ou motivados com seu cargo atual.
     </p>
-    <% if @average_interest_distribution.blank? %>
+    <% if @average_interest_distribution.present? %>
       <div class="chart-wrapper">
         <canvas id="averageInterestChart"></canvas>
       </div>
