@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "3b203fa3-398e-478b-a50f-853d304f5243",
+		"name": "pin-people-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8438921"
+	},
+	"item": [
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "api/v1/departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/departments?level&page&per_page",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"departments"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": null,
+									"description": "Nível do departamento (company, area, team)"
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Número da página"
+								},
+								{
+									"key": "per_page",
+									"value": null,
+									"description": "Itens por página"
+								}
+							]
+						},
+						"description": "Lista departamentos filtrados por nível"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/departments/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/departments/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Mostra um departamento com subdepartamentos aninhados"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/departments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"department\": {\n        \"name\": \"name\",\n        \"level\": \"company\"\n        // \"parent_id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/departments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"departments"
+							]
+						},
+						"description": "Cria um novo departamento"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/departments/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"department\": {\n        \"name\": \"name\",\n        \"level\": \"company\",\n        \"parent_id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/departments/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Atualiza um departamento"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/departments/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/departments/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"departments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Remove um departamento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Survey_responses",
+			"item": [
+				{
+					"name": "api/v1/survey_responses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/survey_responses?level&page&per_page",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"survey_responses"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": null,
+									"description": "Nível do departamento (company, area, team)"
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Número da página"
+								},
+								{
+									"key": "per_page",
+									"value": null,
+									"description": "Itens por página"
+								}
+							]
+						},
+						"description": "Lista de respostas da pesquisa com filtros opcionais"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/survey_responses/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/survey_responses/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"survey_responses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Exibe uma resposta específica da pesquisa"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/survey_responses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"survey_response\": {\n        \"user_id\": 1,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/survey_responses",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"survey_responses"
+							]
+						},
+						"description": "Cria uma nova resposta da pesquisa"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/survey_responses/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"survey_response\": {\n        \"user_id\": 1,\n        \"response_date\": \"2025-06-04\",\n\n        \"interest_in_position\": 6,\n        \"comments_interest\": \"Lorem Ipsum\",\n\n        \"contribution\": 6,\n        \"comments_contribution\": \"Lorem Ipsum\",\n\n        \"learning_and_development\": 6,\n        \"comments_learning\": \"Lorem Ipsum\",\n        \n        \"feedback\": 6,\n        \"comments_feedback\": \"Lorem Ipsum\",\n\n        \"manager_interaction\": 6,\n        \"comments_manager_interaction\": \"Lorem Ipsum\",\n\n        \"career_clarity\": 6,\n        \"comments_career_clarity\": \"Lorem Ipsum\",\n\n        \"permanence_expectation\": 6,\n        \"comments_permanence\": \"Lorem Ipsum\",\n\n        \"enps\": 6,\n        \"comments_enps\": \"Lorem Ipsum\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/survey_responses/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"survey_responses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Atualiza uma resposta da pesquisa"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/survey_responses/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/survey_responses/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"survey_responses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Remove uma resposta da pesquisa"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "api/v1/users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users?level&page&per_page",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": null,
+									"description": "Nível do departamento (company, area, team)"
+								},
+								{
+									"key": "page",
+									"value": null,
+									"description": "Número da página"
+								},
+								{
+									"key": "per_page",
+									"value": null,
+									"description": "Itens por página"
+								}
+							]
+						},
+						"description": "Lista de usuários com filtros opcionais"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/users/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/v1/users/:id",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Exibe um usuário específico"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/v1/users",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						},
+						"description": "Cria um novo usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/users/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"name\": \"name1\",\n        \"email\": \"name1@user.com\",\n        \"company_email\": \"name1@company.com\",\n        \"function\": \"gestor\",\n        \"position\": \"gerente\",\n        \"city\": \"porto alegre\",\n        \"company_tenure\": \"less_than_one_year\",\n        \"genre\": \"male\",\n        \"generation\": \"gen_x\",\n        \"department_id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "ID do departamento"
+								}
+							]
+						},
+						"description": "Atualiza um usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/users/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/users/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Remove um usuário"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
